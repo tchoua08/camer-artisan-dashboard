@@ -8,18 +8,23 @@ import {Task} from './../store/models/task.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-ajoutermetier',
-  templateUrl: './ajoutermetier.component.html',
-  styleUrls: ['./ajoutermetier.component.scss']
+  selector: 'app-ajouteroperation',
+  templateUrl: './ajouteroperation.component.html',
+  styleUrls: ['./ajouteroperation.component.scss']
 })
-export class AjoutermetierComponent implements OnInit {
+export class AjouteroperationComponent implements OnInit {
 
   tasks: Array<Task> = [];
-  menu : string;
+  menu: string;
+  nom:string;
+  lesmetiers: Array<any> = [];
   metier = {} as Metier;
-  constructor( private SpinnerService: NgxSpinnerService,public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {}
+  constructor( private SpinnerService: NgxSpinnerService, public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
+    this.service.getMetier().subscribe(res => {
+      this.lesmetiers =res;
+   });
   }
 
   ajouterMetier() {
@@ -28,7 +33,7 @@ export class AjoutermetierComponent implements OnInit {
  listingMetier() {
   this.router.navigate(['/listingmetier']);
  }
- 
+
  ajouterOperation(){
   this.router.navigate(['/ajouteroperation']);
  }
@@ -36,6 +41,7 @@ export class AjoutermetierComponent implements OnInit {
  listingOperation(){
   this.router.navigate(['/listingoperation']);
  }
+
 
  listingcommande() {
   this.router.navigate(['/listingcommande']);
@@ -51,14 +57,14 @@ this.dataService.deleteToken();
 window.location.href = window.location.href;
 }
 
-enregistrer(){
-  this.metier.menu =this.menu.toLowerCase();
-  this.metier.sousmenu =this.tasks;
+enregistrer() {
+  this.metier.menu = this.menu.toLowerCase();
+  this.metier.sousmenu = this.tasks;
   this.SpinnerService.show();
-  this.service.addMetierId(this.metier.menu,this.metier).then(res=>{
+  this.service.addMetierId(this.metier.menu, this.metier).then(res => {
     this.SpinnerService.hide();
-    this.tasks=null;
-    this.menu='';
+    this.tasks = null;
+    this.menu = '';
   });
 
 }
@@ -84,7 +90,7 @@ addTask(input) {
 }
 
 cancelTask(idx: number) {
-  if (this.tasks[idx].is_canceled){
+  if (this.tasks[idx].is_canceled) {
     this.tasks[idx].is_canceled = false;
   } else {
     this.tasks[idx].is_canceled = true;

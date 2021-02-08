@@ -29,6 +29,14 @@ export class DashboardComponent implements OnInit {
   this.router.navigate(['/listingmetier']);
  }
 
+ ajouterOperation(){
+  this.router.navigate(['/ajouteroperation']);
+ }
+
+ listingOperation(){
+  this.router.navigate(['/listingoperation']);
+ }
+
  listingcommande(){
   this.router.navigate(['/listingcommande']);
  }

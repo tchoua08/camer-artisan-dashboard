@@ -27,6 +27,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AjoutermetierComponent } from './ajoutermetier/ajoutermetier.component';
 import { ListingmetierComponent } from './listingmetier/listingmetier.component';
+import { AjouteroperationComponent } from './ajouteroperation/ajouteroperation.component';
+import { ListingoperationComponent } from './listingoperation/listingoperation.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ListingmetierComponent } from './listingmetier/listingmetier.component'
     DashboardComponent,
     LoginComponent,
     AjoutermetierComponent,
-    ListingmetierComponent
+    ListingmetierComponent,
+    AjouteroperationComponent,
+    ListingoperationComponent
   ],
   imports: [
     BrowserModule,

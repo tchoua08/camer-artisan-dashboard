@@ -1,18 +1,19 @@
 import {Detail} from './detail.model';
+import {Task} from './task.model';
 
 export class Operation {
-  id: string;
   nom: string;
-  photo:string;
-  tarif:number;
-  detail: Detail[];
+  metier: string;
+  description: string;
+  tarif: number;
+  detail: Task[];
 
   constructor(obj:Operation | any = {}) {
     this.nom = obj.nom || '';
-    this.photo = obj.photo || '';
+    this.metier = obj.metier || '';
+    this.description = obj.description || '';
     this.tarif = obj.tarif || 0;
-    this.detail = new obj.detail() || null;
-    this.id = obj.id || '';
+    this.detail = obj.detail || null;
 
 
   }

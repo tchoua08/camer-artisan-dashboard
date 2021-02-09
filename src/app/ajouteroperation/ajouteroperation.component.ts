@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DataService } from '../../app/data.service';
 import { Metier } from './../store/models/metier.model';
+import { Operation } from './../store/models/operation.model';
 import {Task} from './../store/models/task.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -16,15 +17,39 @@ export class AjouteroperationComponent implements OnInit {
 
   tasks: Array<Task> = [];
   menu: string;
-  nom:string;
+  nom: string;
+  prestation: string;
+  tarif: number=0;
+  description: string;
+  sousmenu =[];
   lesmetiers: Array<any> = [];
   metier = {} as Metier;
+  operation = {} as Operation;
+
   constructor( private SpinnerService: NgxSpinnerService, public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.service.getMetier().subscribe(res => {
       this.lesmetiers =res;
+
    });
+  }
+
+  changeSuit(){
+
+  }
+
+  changeMetier(event){
+    const value = event.target.value;
+    this.lesmetiers.forEach(element =>{
+
+      if (element.cle===value){
+        this.operation.metier =value;
+        this.sousmenu =element.sousmenu;
+
+      }
+    })
+
   }
 
   ajouterMetier() {
@@ -58,13 +83,22 @@ window.location.href = window.location.href;
 }
 
 enregistrer() {
-  this.metier.menu = this.menu.toLowerCase();
-  this.metier.sousmenu = this.tasks;
+  this.operation.nom =this.prestation;
+  this.operation.tarif =this.tarif;
+  this.operation.detail = this.tasks;
+  this.operation.description = this.description;
   this.SpinnerService.show();
-  this.service.addMetierId(this.metier.menu, this.metier).then(res => {
+  this.service.addOperationId(this.prestation, this.operation).then(res => {
     this.SpinnerService.hide();
     this.tasks = null;
-    this.menu = '';
+    this.nom = '';
+    this.tarif =0;
+    this.description='';
+
+
+  }, err=>{
+   
+    this.SpinnerService.hide();
   });
 
 }

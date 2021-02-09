@@ -188,9 +188,9 @@
               <label class="input-group-text" for="inputGroupSelect01">Choisir le metier</label>
             </div>
 
-            <select class="custom-select" 
-            id="inputGroupSelect01" [(ngModel)]="nom">
-              <option  *ngFor="let m of lesmetiers">
+            <select class="custom-select"
+            id="inputGroupSelect01" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" (change)="changeMetier($event)">
+              <option *ngFor="let m of lesmetiers">
                   {{m.cle}}
               </option>
             </select>
@@ -201,11 +201,11 @@
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">Choisir la prestation</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="custom-select"
+            id="inputGroupSelect01" [(ngModel)]="prestation" [ngModelOptions]="{standalone: true}">
+              <option  *ngFor="let sm of sousmenu">
+                  {{sm.title}}
+              </option>
             </select>
           </div>
         </div>
@@ -214,17 +214,17 @@
         <div class="form-row">
           <div class="col">
             <label for="validationDefault01">Tarif</label>
-            <input type="text"  [(ngModel)]="menu" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Ajouter le tarif" value="menu" required>
+            <input type="text"  [(ngModel)]="tarif" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Ajouter le tarif" value="tarif" required>
           </div>
 
           <div class="col">
-            <label for="validationDefault01">photo</label>
-            <input type="text"  [(ngModel)]="menu" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Ajouter le tarif" value="menu" required>
+            <label for="validationDefault01">Description</label>
+            <textarea type="text"  [(ngModel)]="description" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Description" value="description" required></textarea>
           </div>
         </div>
 
         <div class="form-row">
-        
+
             <div class="col">
           <label for="validationDefault03">Détail</label>
           <div class="container">

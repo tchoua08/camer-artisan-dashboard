@@ -181,7 +181,7 @@ export class DataService {
 
   addOperationId(id: string, operation: Operation) {
     this.store.dispatch(new OperationAddItemAction({ ...operation }));
-    return this.operationCollection.doc(id).set(operation);
+    return this.operationCollection.doc(id).set(operation,{merge:true});
   }
 
 

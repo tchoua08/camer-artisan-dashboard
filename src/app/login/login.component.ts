@@ -27,7 +27,7 @@ postdata(angForm1) {
   this.dataService.userlogin(angForm1.value.email, angForm1.value.password)
 .then(
 data => {
-   if (angForm1.value.email === 'tchoua86@gmail.com') {
+   if (angForm1.value.email === 'camer-artisan@gmail.com') {
     this.SpinnerService.hide();
     const redirect = '/dashboard';
     this.router.navigate([redirect]);

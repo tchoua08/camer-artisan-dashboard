@@ -82,6 +82,38 @@
       </li>
 
 
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Utilisateurs</span>
+          </a>
+          <div id="collapseThree" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+              <button (click)="listingClient()" class="collapse-item" >Listing clients</button>
+              <button (click)="listingPrestataire()" class="collapse-item" >Listing prestataires</button>
+            </div>
+          </div>
+        </li>
+
+
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Commandes</span>
+          </a>
+          <div id="collapseFour" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+              <button (click)="listingCommande()" class="collapse-item" >Listing commandes</button>
+
+            </div>
+          </div>
+        </li>
+
 
 
       <!-- Divider -->

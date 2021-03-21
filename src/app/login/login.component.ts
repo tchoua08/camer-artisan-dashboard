@@ -21,6 +21,7 @@ password: ['', Validators.required]
 }
 
 ngOnInit() {
+
 }
 postdata(angForm1) {
   this.SpinnerService.show();

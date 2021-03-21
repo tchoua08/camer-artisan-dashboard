@@ -7,6 +7,9 @@ import { AjoutermetierComponent } from './ajoutermetier/ajoutermetier.component'
 import { ListingmetierComponent } from './listingmetier/listingmetier.component';
 import { AjouteroperationComponent } from './ajouteroperation/ajouteroperation.component';
 import { ListingoperationComponent } from './listingoperation/listingoperation.component';
+import { ListingclientComponent } from './listingclient/listingclient.component';
+import { ListingprestataireComponent } from './listingprestataire/listingprestataire.component';
+import { ListingcommandeComponent } from './listingcommande/listingcommande.component';
 
 const routes: Routes = [
 { path: '', component: LoginComponent },
@@ -17,6 +20,9 @@ const routes: Routes = [
 
 { path: 'ajouteroperation', component: AjouteroperationComponent,canActivate: [AuthguardGuard] },
 { path: 'listingoperation', component: ListingoperationComponent,canActivate: [AuthguardGuard] },
+{ path: 'listingclient', component: ListingclientComponent,canActivate: [AuthguardGuard] },
+{ path: 'listingprestataire', component: ListingprestataireComponent,canActivate: [AuthguardGuard] },
+{ path: 'listingcommande', component: ListingcommandeComponent,canActivate: [AuthguardGuard] }
 
 
 ]

@@ -1,25 +1,37 @@
-import {Client} from './client.model';
-import { Prestataire } from './prestataire.model';
-import {Metier} from './metier.model';
-import { Operation } from './operation.model';
+import {Task} from './task.model';
 export class Commande {
   id: string;
   dateCommande: string;
-  dispoReservation: string[][];
-  client: Client;
-  metier: Metier;
-  operation: Operation;
-  prestataire: Prestataire;
+  dateSouhaite: string;
+  heureSouhaite: string;
+  nomClient: string;
+  numeroTel: string;
+  emailClient: string;
+  titreMetier: string;
+  titreOperation: string;
+  tarifOperation: number;
+  etat: string;
+  descriptionOperation: string;
+  details: Task[];
 
-  constructor(obj: Commande | any = {}) {
-    this.client = new obj.client() || null;
-    this.id = obj.id || '';
-    this.dateCommande = obj.dateCommande || '';
-    this.dispoReservation = obj.dispoReservation || null;
-    this.prestataire =new obj.prestataire() || null;
-    this.client =new obj.client() || null;
-    this.metier =new obj.metier() || null;
-    this.operation =new obj.operation() || null;
+  constructor(commande: Commande | any = {}) {
+    commande = commande || {};
+    this.id = commande.id || '';
+    this.etat = commande.etat || '';
+    this.details = commande.details || null;
+    this.dateCommande = commande.dateCommande || '';
+    this.dateSouhaite = commande.dateSouhaite || '';
+    this.heureSouhaite = commande.heureSouhaite || '';
+    this.nomClient = commande.nomClient || '';
+    this.numeroTel = commande.numeroTel || '';
+    this.emailClient = commande.emailClient || '';
+    this.titreMetier = commande.titreMetier || '';
+    this.titreOperation = commande.titreOperation || '';
+    this.tarifOperation = commande.tarifOperation || '';
+    this.descriptionOperation = commande.descriptionOperation || '';
+
+
 
   }
+
 }

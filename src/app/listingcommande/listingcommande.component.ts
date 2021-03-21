@@ -5,24 +5,24 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DataService } from '../../app/data.service';
 
-import { Operation } from '../store/models/operation.model';
+import { Commande } from '../store/models/commande.model';
 import { AnimationStyleMetadata } from '@angular/animations';
 
 
 
 
 @Component({
-  selector: 'app-listingoperation',
-  templateUrl: './listingoperation.component.html',
-  styleUrls: ['./listingoperation.component.scss']
+  selector: 'app-listingcommande',
+  templateUrl: './listingcommande.component.html',
+  styleUrls: ['./listingcommande.component.scss']
 })
-export class ListingoperationComponent implements OnInit {
+export class ListingcommandeComponent implements OnInit {
 
   taillemetier=0;
   tailleutilisateur=0;
   taillecommande=0;
-  operations: Observable<Array<Operation>>;
-  operations$ = [];
+  commandes: Observable<Array<Commande>>;
+  commandes$ = [];
   page = 1;
   count = 0;
   tableSize = 7;
@@ -42,10 +42,6 @@ export class ListingoperationComponent implements OnInit {
   }
  listingMetier(){
   this.router.navigate(['/listingmetier']);
- }
-
- listingCommande(){
-  this.router.navigate(['/listingcommande']);
  }
 
  ajouterOperation(){
@@ -82,13 +78,13 @@ window.location.href = window.location.href;
 
 
 fetchPosts(): void {
-  this.operations = this.service.getOperation();
+  this.commandes = this.service.getCommande();
 
-  this.operations.subscribe((resultat) => {
-    this.operations$=[];
+  this.commandes.subscribe((resultat) => {
+    this.commandes$=[];
     resultat.forEach((res) => {
-       //  if (res.nomoperations!=null){
-          this.operations$.push(res);
+       //  if (res.nomcommandes!=null){
+          this.commandes$.push(res);
        //  }
 
 
@@ -111,6 +107,10 @@ onTableSizeChange(event:any): void {
   this.page = 1;
   this.fetchPosts();
 }
+
+listingCommande(){
+  this.router.navigate(['/listingcommande']);
+ }
 
 
 

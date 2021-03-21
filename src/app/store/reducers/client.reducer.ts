@@ -1,8 +1,9 @@
 import { Client } from '../models/client.model';
 import { ClientActionTypes, ClientAction } from '../actions/client.action';
-import { Utilisateur } from '../models/utilisateur.model';
 
-const initialState: Array<Client> = [new Client(new Utilisateur())];
+
+
+const initialState: Array<Client> = [new Client()];
 
 // tslint:disable-next-line: typedef
 export function ClientReducer(

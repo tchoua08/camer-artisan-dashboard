@@ -6,6 +6,7 @@ import {
 
 // Importation des Models
 import { Client } from '../app/store/models/client.model';
+import { Commande } from '../app/store/models/commande.model';
 import { Prestataire } from '../app/store/models/prestataire.model';
 import { Utilisateur } from '../app/store/models/utilisateur.model';
 import { Metier } from '../app/store/models/metier.model';
@@ -34,6 +35,7 @@ import { AppState } from '../app/store/models/app-state.model';
 })
 export class DataService {
   private dbClientPath = '/Client';
+  private dbCommandePath = '/Commande';
   private dbPrestatairePath = '/Prestataire';
   private dbUtilisateurPath = '/Utilisateur';
   private dbMetierPath = '/Metier';
@@ -41,9 +43,15 @@ export class DataService {
   public userKey = '';
   public endpoint = '';
 
+
+  private commandeCollection: AngularFirestoreCollection<Commande>;
+
   private clientCollection: AngularFirestoreCollection<Client>;
+
   private prestataireCollection: AngularFirestoreCollection<Prestataire>;
+
   private utilisateurCollection: AngularFirestoreCollection<Utilisateur>;
+
   private metierCollection: AngularFirestoreCollection<Metier>;
   private operationCollection: AngularFirestoreCollection<Operation>;
 
@@ -55,6 +63,9 @@ export class DataService {
     private afs: AngularFirestore
   ) {
     this.clientCollection = this.afs.collection<Client>('Client');
+
+    this.commandeCollection = this.afs.collection<Commande>('Commande');
+
     this.utilisateurCollection = this.afs.collection<Utilisateur>('Utilisateur');
     this.prestataireCollection = this.afs.collection<Prestataire>('Prestataire');
 
@@ -67,6 +78,22 @@ export class DataService {
     // Read data
     getUtilisateur() {
     return this.utilisateurCollection.snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const cle = a.payload.doc.id;
+
+          return { cle, ...data };
+        });
+      })
+    );
+  }
+
+
+
+
+  getCommande() {
+    return this.commandeCollection.snapshotChanges().pipe(
       map((actions) => {
         return actions.map((a) => {
           const data = a.payload.doc.data();

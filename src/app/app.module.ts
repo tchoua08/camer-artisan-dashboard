@@ -29,6 +29,11 @@ import { AjoutermetierComponent } from './ajoutermetier/ajoutermetier.component'
 import { ListingmetierComponent } from './listingmetier/listingmetier.component';
 import { AjouteroperationComponent } from './ajouteroperation/ajouteroperation.component';
 import { ListingoperationComponent } from './listingoperation/listingoperation.component';
+import { ListingprestataireComponent } from './listingprestataire/listingprestataire.component';
+import { ListingclientComponent } from './listingclient/listingclient.component';
+
+import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ListingcommandeComponent } from './listingcommande/listingcommande.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,10 @@ import { ListingoperationComponent } from './listingoperation/listingoperation.c
     AjoutermetierComponent,
     ListingmetierComponent,
     AjouteroperationComponent,
-    ListingoperationComponent
+    ListingoperationComponent,
+    ListingprestataireComponent,
+    ListingclientComponent,
+    ListingcommandeComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +72,7 @@ import { ListingoperationComponent } from './listingoperation/listingoperation.c
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule
   ],
+   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [
     DataService
   ],

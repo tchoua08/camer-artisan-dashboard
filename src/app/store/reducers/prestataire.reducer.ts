@@ -1,8 +1,7 @@
-import { Prestataire } from '../models/prestataire.model';
+import { Prestataire } from '../../store/models/prestataire.model';
 import { PrestataireActionTypes, PrestataireAction } from '../actions/prestataire.action';
-import { Utilisateur } from '../models/utilisateur.model';
 
-const initialState: Array<Prestataire> = [new Prestataire(new Utilisateur())];
+const initialState: Array<Prestataire> = [new Prestataire()];
 
 // tslint:disable-next-line: typedef
 export function PrestataireReducer(

@@ -50,7 +50,6 @@
         Interface
       </div>-->
 
-
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUn" aria-expanded="false" aria-controls="collapseUn">
@@ -82,6 +81,7 @@
       </li>
 
 
+
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -96,6 +96,7 @@
             </div>
           </div>
         </li>
+
 
          <!-- Nav Item - Pages Collapse Menu -->
          <li class="nav-item">
@@ -113,6 +114,7 @@
         </li>
 
 
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -126,8 +128,12 @@
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-         <!-- Topbar -->
-         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -202,118 +208,70 @@
 
         </nav>
         <!-- End of Topbar -->
-      <!-- Main Content -->
-      <div id="content">
-     <!-- Main content -->
-<section class="content" >
-  <div class="container-fluid">
-    <div class="card  text-dark bg-light">
-    <form>
-      <div class="form-row">
 
-        <div class="col">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Choisir le metier</label>
-            </div>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-            <select class="custom-select"
-            id="inputGroupSelect01" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" (change)="changeMetier($event)">
-              <option *ngFor="let m of lesmetiers">
-                  {{m.cle}}
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Choisir la prestation</label>
-            </div>
-            <select class="custom-select"
-            id="inputGroupSelect01" [(ngModel)]="prestation" [ngModelOptions]="{standalone: true}">
-              <option  *ngFor="let sm of sousmenu">
-                  {{sm.title}}
-              </option>
-            </select>
-          </div>
-        </div>
-       </div>
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Clients</h1>
 
-        <div class="form-row">
-          <div class="col">
-            <label for="validationDefault01">Tarif</label>
-            <input type="text"  [(ngModel)]="tarif" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Ajouter le tarif" value="tarif" required>
           </div>
 
-          <div class="col">
-            <label for="validationDefault01">Description</label>
-            <textarea type="text"  [(ngModel)]="description" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Description" value="description" required></textarea>
-          </div>
-        </div>
 
-        <div class="form-row">
 
-            <div class="col">
-          <label for="validationDefault03">Détails</label>
-          <div class="container">
-            <div class="row">
-                <div class="col-xs-8">
-                    <input type="text" class="form-control" name="sous menu" placeholder="Détail" #taskInput>
-                </div>&nbsp;&nbsp;
-
-                <div class="col-xs-6">
-                    <button class="btn btn-info" (click)="addTask(taskInput)">Ajouter</button>
-                </div>
+          <section class="content">
+            <div class="container-fluid" *ngIf="clients$.length>0">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom et prénom</th>
+                    <th scope="col">Numéro de téléphone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Adresse</th>
+                   <!--  <th scope="col">Prestation</th>
+                   <th scope="col">Date inscription</th>-->
+                    <!--<th scope="col">Action</th>-->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let client of clients$ | paginate : {
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                  }
+                  ; let i=index;">
+                    <td>{{ i+1}}</td>
+                    <td>{{ client.nom }}&nbsp;{{ client.prenom }}</td>
+                    <td>{{ client.numeroTel }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.adresse }}</td>
+                   <!-- <td>{{ client.prestation }}</td>
+                    <td>{{ client.dateCreation }}</td>
+                    <td>
+                <button type="button"  (click)="detailclienttataire(client)" class="btn btn-secondary">Détail</button>
+                    </td>-->
+                  </tr>
+                </tbody>
+              </table>
+              <div class="d-flex justify-content-center">
+                <!--<pagination-controls
+                  responsive="true"
+                  previousLabel="Prev"
+                  nextLabel="Next"
+                  (pageChange)="onTableDataChange($event)">
+                </pagination-controls>-->
+              </div>
             </div>
+          </section>
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <table class="table table-striped">
 
-                        <tbody>
-                            <tr *ngFor="let task of tasks; let idx = index">
-                                <td *ngIf="task.is_canceled; else elseTd">
-                                    <s>{{ idx + 1 }}. {{task.title}}</s>
-                                </td>
-                                <ng-template #elseTd>
-                                    <td>{{ idx + 1 }}. {{task.title}}</td>
-                                </ng-template>
 
-                                <td>
-                                    <button class="btn btn-primary btn-xs" (click)="editTask(idx)"> Edit </button>
-                                </td>
 
-                                <td>
-                                    <button class="btn btn-warning btn-xs" (click)="cancelTask(idx)"> annuler </button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger btn-xs" (click)="deleteTask(idx)"> Supprimer </button>
-                                </td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-                </div>
-            </div>
-         </div>
-        </div>
 
         </div>
-
-
-
-      <button (click)="enregistrer()" class="btn btn-primary" type="submit">Enregister</button>
-    </form>
-    </div>
-
-
-    <!-- /.row -->
-  </div>
-  <!-- /.container-fluid -->
-</section>
-
+        <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -357,23 +315,8 @@
       </div>
     </div>
   </div>
-  <ngx-spinner
-  bdColor="rgba(51, 51, 51, 0.8)"
-  size="default"
-  type="ball-spin-clockwise"
->
-  <p style="color: white;">Enregistrement en cours.Merci de patienter.</p>
-</ngx-spinner>
+
 </body>
 
 </html>
 <router-outlet></router-outlet>
-
-
-
-
-
-
-
-
-

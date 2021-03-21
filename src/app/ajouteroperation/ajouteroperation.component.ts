@@ -67,6 +67,17 @@ export class AjouteroperationComponent implements OnInit {
   this.router.navigate(['/listingoperation']);
  }
 
+ listingPrestataire(){
+  this.router.navigate(['/listingprestataire']);
+ }
+
+ listingClient(){
+  this.router.navigate(['/listingclient']);
+ }
+ listingCommande(){
+  this.router.navigate(['/listingcommande']);
+ }
+
 
  listingcommande() {
   this.router.navigate(['/listingcommande']);
@@ -97,7 +108,7 @@ enregistrer() {
 
 
   }, err=>{
-   
+
     this.SpinnerService.hide();
   });
 

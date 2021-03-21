@@ -28,9 +28,22 @@ export class AjoutermetierComponent implements OnInit {
  listingMetier() {
   this.router.navigate(['/listingmetier']);
  }
- 
+
  ajouterOperation(){
   this.router.navigate(['/ajouteroperation']);
+ }
+
+
+listingPrestataire(){
+  this.router.navigate(['/listingprestataire']);
+ }
+
+ listingClient(){
+  this.router.navigate(['/listingclient']);
+ }
+
+ listingCommande(){
+  this.router.navigate(['/listingcommande']);
  }
 
  listingOperation(){

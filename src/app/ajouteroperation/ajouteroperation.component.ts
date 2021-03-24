@@ -18,7 +18,7 @@ export class AjouteroperationComponent implements OnInit {
   tasks: Array<Task> = [];
   menu: string;
   nom: string;
-  prestation: string;
+  prestation: string = '';
   tarif: number=0;
   description: string;
   sousmenu =[];
@@ -93,12 +93,18 @@ this.dataService.deleteToken();
 window.location.href = window.location.href;
 }
 
+public onOptionsSelected(event) {
+  const value = event.target.value;
+  this.prestation = value;
+}
+
 enregistrer() {
   this.operation.nom =this.prestation;
   this.operation.tarif =this.tarif;
   this.operation.detail = this.tasks;
   this.operation.description = this.description;
   this.SpinnerService.show();
+
   this.service.addOperationId(this.prestation, this.operation).then(res => {
     this.SpinnerService.hide();
     this.tasks = null;

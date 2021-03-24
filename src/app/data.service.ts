@@ -187,7 +187,7 @@ export class DataService {
   // Add data by id
 
     addUtilisateurId(id: string, user:Utilisateur) {
-    this.store.dispatch(new UtilisateurAddItemAction({ ...user }));
+   // this.store.dispatch(new UtilisateurAddItemAction({ ...user }));
     return this.utilisateurCollection.doc(id).set(user);
   }
 
@@ -197,17 +197,17 @@ export class DataService {
   }
 
     addClientId(id: string, client: Client) {
-    this.store.dispatch(new ClientAddItemAction({ ...client }));
+   // this.store.dispatch(new ClientAddItemAction({ ...client }));
     return this.clientCollection.doc(id).set(client);
   }
 
   addMetierId(id: string, metier: Metier) {
-    this.store.dispatch(new MetierAddItemAction({ ...metier }));
+   // this.store.dispatch(new MetierAddItemAction({ ...metier }));
     return this.metierCollection.doc(id).set(metier,{merge:true});
   }
 
   addOperationId(id: string, operation: Operation) {
-    this.store.dispatch(new OperationAddItemAction({ ...operation }));
+   // this.store.dispatch(new OperationAddItemAction({ ...operation }));
     return this.operationCollection.doc(id).set(operation,{merge:true});
   }
 

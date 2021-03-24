@@ -230,9 +230,9 @@
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">Choisir la prestation</label>
             </div>
-            <select class="custom-select"
-            id="inputGroupSelect01" [(ngModel)]="prestation" [ngModelOptions]="{standalone: true}">
-              <option  *ngFor="let sm of sousmenu">
+            <select (change)='onOptionsSelected($event)' class="custom-select"
+            id="inputGroupSelect01" [(ngModel)]="prestation" [ngModelOptions]="{standalone: true}" >
+              <option [value]="sm.title" *ngFor="let sm of sousmenu">
                   {{sm.title}}
               </option>
             </select>

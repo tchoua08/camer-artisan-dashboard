@@ -93,8 +93,13 @@ fetchPosts(): void {
 }
 
 
-detailPrestataire(pres:any){
+supprimerMetier(pres:any){
 
+  this.service.deleteMetier(pres.cle).then(res=>{
+
+  },err=>{
+
+  })
 }
 
 onTableDataChange(event:any){

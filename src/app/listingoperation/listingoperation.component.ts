@@ -96,6 +96,15 @@ fetchPosts(): void {
   });
 }
 
+supprimerOperation(op:any){
+
+  this.service.deleteOperation(op.cle).then(res=>{
+
+  },err=>{
+
+  })
+}
+
 
 detailPrestataire(pres:any){
 

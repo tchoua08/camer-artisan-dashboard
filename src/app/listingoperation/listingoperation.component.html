@@ -228,6 +228,7 @@
                     <th scope="col">Metier</th>
                     <th scope="col">Description</th>
                     <th scope="col">Tarif(FCFA)</th>
+                    <th scope="col">Action</th>
                    <!--  <th scope="col">Prestation</th>
                    <th scope="col">Date inscription</th>-->
                     <!--<th scope="col">Action</th>-->
@@ -245,6 +246,9 @@
                     <td>{{ operation.metier }}</td>
                     <td>{{ operation.description }}</td>
                     <td>{{ operation.tarif }}</td>
+                    <td>
+                      <button type="button"  (click)="supprimerOperation(operation)" class="btn btn-danger">Supprimer</button>
+                          </td>
                    <!-- <td>{{ operation.prestation }}</td>
                     <td>{{ operation.dateCreation }}</td>
                     <td>

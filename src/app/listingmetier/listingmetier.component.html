@@ -225,7 +225,7 @@
 
                     <th scope="col">#</th>
                     <th scope="col">menu</th>
-
+                    <th scope="col">Action</th>
                    <!--  <th scope="col">Prestation</th>
                    <th scope="col">Date inscription</th>-->
                     <!--<th scope="col">Action</th>-->
@@ -240,7 +240,7 @@
                   ; let i=index;">
                     <td>{{ i+1}}</td>
                     <td>{{ metier.menu }}</td>
-
+                    <button type="button"  (click)="supprimerMetier(metier)"  class="btn btn-danger">Supprimer</button>
                    <!-- <td>{{ metier.prestation }}</td>
                     <td>{{ metier.dateCreation }}</td>
                     <td>

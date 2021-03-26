@@ -35,6 +35,8 @@ import { ListingclientComponent } from './listingclient/listingclient.component'
 import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ListingcommandeComponent } from './listingcommande/listingcommande.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,11 @@ import { ListingcommandeComponent } from './listingcommande/listingcommande.comp
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot(),
+     ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
      StoreModule.forRoot({
       user: UtilisateurReducer,
       prestataire:PrestataireReducer,

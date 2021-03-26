@@ -68,7 +68,7 @@ enregistrer(){
   this.metier.menu =this.menu.toLowerCase();
   this.metier.sousmenu =this.tasks;
   this.SpinnerService.show();
-
+ 
   this.service.addMetierId(this.menu.toLowerCase(),this.metier).then(res=>{
     this.SpinnerService.hide();
     this.tasks=null;

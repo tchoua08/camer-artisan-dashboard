@@ -7,7 +7,8 @@ import { DataService } from '../../app/data.service';
 
 import { Metier } from '../store/models/metier.model';
 import { AnimationStyleMetadata } from '@angular/animations';
-
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -28,7 +29,7 @@ export class ListingmetierComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private toastr: ToastrService,private SpinnerService: NgxSpinnerService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }
@@ -94,11 +95,14 @@ fetchPosts(): void {
 
 
 supprimerMetier(pres:any){
-
+  this.SpinnerService.show();
   this.service.deleteMetier(pres.cle).then(res=>{
-
+    this.SpinnerService.hide();
+    this.toastr.error('Oups!', 'Suppression avec succès');
   },err=>{
 
+    this.SpinnerService.hide();
+    this.toastr.error('Oups!', 'Une erreur est survenue, merci de réessayer');
   })
 }
 

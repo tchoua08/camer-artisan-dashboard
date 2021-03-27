@@ -102,11 +102,11 @@ supprimerOperation(pres:any){
   this.service.deleteOperation(pres.cle).then(res=>{
 
     this.SpinnerService.hide();
-    this.toastr.error('Oups!', 'Suppression avec succès');
+    this.toastr.success('Alert', 'Suppression avec succès');
   },err=>{
 
     this.SpinnerService.hide();
-    this.toastr.error('Oups!', 'Une erreur est survenue, merci de réessayer');
+    this.toastr.error('Alert!', 'Une erreur est survenue, merci de réessayer');
   })
 }
 

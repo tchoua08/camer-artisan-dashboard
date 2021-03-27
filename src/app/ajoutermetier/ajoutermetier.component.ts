@@ -6,6 +6,7 @@ import { DataService } from '../../app/data.service';
 import { Metier } from './../store/models/metier.model';
 import {Task} from './../store/models/task.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ajoutermetier',
@@ -17,7 +18,7 @@ export class AjoutermetierComponent implements OnInit {
   tasks: Array<Task> = [];
   menu : string;
   metier = {} as Metier;
-  constructor( private SpinnerService: NgxSpinnerService,public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {}
+  constructor(  private toastr: ToastrService,private SpinnerService: NgxSpinnerService,public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
   }
@@ -68,11 +69,14 @@ enregistrer(){
   this.metier.menu =this.menu.toLowerCase();
   this.metier.sousmenu =this.tasks;
   this.SpinnerService.show();
- 
+
   this.service.addMetierId(this.menu.toLowerCase(),this.metier).then(res=>{
     this.SpinnerService.hide();
     this.tasks=null;
     this.menu='';
+    this.toastr.success('Alert', 'Ajout avec succès');
+  }, err=>{
+    this.toastr.error('Alert', 'Une erreur est survenue, merci de réessayer');
   });
 
 }

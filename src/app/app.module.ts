@@ -59,9 +59,9 @@ import { ListingcommandeComponent } from './listingcommande/listingcommande.comp
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-     ToastrModule.forRoot({
+    ToastrModule.forRoot({
       timeOut: 10000,
-      positionClass: 'toast-bottom-right',
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
     }),
      StoreModule.forRoot({

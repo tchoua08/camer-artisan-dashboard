@@ -52,11 +52,11 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUn" aria-expanded="false" aria-controls="collapseUn">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Métier</span>
         </a>
-        <div id="collapseUn" class="collapse multi-collapse" aria-labelledby="headingUn" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!--<h6 class="collapse-header">Custom Comp:</h6>-->
             <button (click)="ajouterMetier()" class="collapse-item" >Ajouter métier</button>
@@ -65,25 +65,23 @@
         </div>
       </li>
 
-       <!-- Nav Item - Pages Collapse Menu -->
-       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Opération</span>
-        </a>
-        <div id="collapseTwo" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-            <button (click)="ajouterOperation()" class="collapse-item" >Ajouter opération</button>
-            <button (click)="listingOperation()" class="collapse-item" >Listing opération</button>
-          </div>
-        </div>
-      </li>
-
-
-
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Opération</span>
+          </a>
+          <div id="collapseTwo" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+              <button (click)="ajouterOperation()" class="collapse-item" >Ajouter opération</button>
+              <button (click)="listingOperation()" class="collapse-item" >Listing opération</button>
+            </div>
+          </div>
+        </li>
+
+         <!-- Nav Item - Pages Collapse Menu -->
+         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             <i class="fas fa-fw fa-cog"></i>
             <span>Utilisateurs</span>
@@ -96,22 +94,20 @@
             </div>
           </div>
         </li>
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Commandes</span>
+      </a>
+      <div id="collapseFour" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+          <button (click)="listingCommande()" class="collapse-item" >Listing commandes</button>
 
-
-         <!-- Nav Item - Pages Collapse Menu -->
-         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Commandes</span>
-          </a>
-          <div id="collapseFour" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-              <button (click)="listingCommande()" class="collapse-item" >Listing commandes</button>
-
-            </div>
-          </div>
-        </li>
+        </div>
+      </div>
+    </li>
 
 
 
@@ -214,60 +210,92 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Clients</h1>
+            <h1 class="h3 mb-0 text-gray-800">Detail client</h1>
 
           </div>
-
-
-
           <section class="content">
-            <div class="container-fluid" *ngIf="clients$.length>0">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom et prénom</th>
-                    <th scope="col">Numéro de téléphone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Adresse</th>
-                    <th scope="col">Date inscription</th>
-                    <th scope="col">Action</th>
+            <div padding class="row">
+              <div class="col-xl-12 text-xs-center">
+                       <div>
+                           <div class="card-content">
 
-                   <!--  <th scope="col">Prestation</th>
-                  -->
+                                   <div class="mb-3 text-center">
+                                       <div class="card-header"  class="card text-white bg-dark " >
+                                           Détail sur le client
+                                       </div>
+                                       <div class="card-block">
+            <ul class="list-group">
+           <li class="list-group-item d-flex justify-content-between align-items-center">
+          Client
+       <span class="badge badge-success badge-pill">{{client.nom}}</span>
+        </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+                Email
+       <span class="badge badge-success badge-pill">{{client.email}}</span>
+        </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+              Numéro téléphone
+       <span class="badge badge-success badge-pill">
+              {{client.numeroTel}}
+        </span>
+          </li>
 
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let client of clients$ | paginate : {
-                    itemsPerPage: tableSize,
-                    currentPage: page,
-                    totalItems: count
-                  }
-                  ; let i=index;">
-                    <td>{{ i+1}}</td>
-                    <td>{{ client.nom }}&nbsp;{{ client.prenom }}</td>
-                    <td>{{ client.numeroTel }}</td>
-                    <td>{{ client.email }}</td>
-                    <td>{{ client.adresse }}</td>
-                    <td>{{ client.dateCreation }}</td>
-                    <td>
-                      <button type="button"  (click)="detailclient(client)" class="btn btn-secondary">Détail</button>
-                          </td>
-                   <!--
-                   -->
-                  </tr>
-                </tbody>
-              </table>
-              <div class="d-flex justify-content-center">
-                <!--<pagination-controls
-                  responsive="true"
-                  previousLabel="Prev"
-                  nextLabel="Next"
-                  (pageChange)="onTableDataChange($event)">
-                </pagination-controls>-->
-              </div>
+          </ul>
+             </div>
             </div>
+        <div class="mb-3 text-center" >
+      <div class="card-header"  class="card text-white bg-dark ">
+                      Adresse
+      </div>
+      <div class="card-block">
+      <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+                 Adresse
+      <span class="badge badge-success badge-pill">{{client.adresse}}</span>
+       </li>
+
+
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+                 Date de création
+      <span class="badge badge-success badge-pill">{{client.dateCreation}}</span>
+        </li>
+
+        </ul>
+        </div>
+      </div>
+
+      <div class="mb-3 text-center" >
+     <div class="card-header"  class="card text-white bg-dark ">
+          Validation du profil
+     </div>
+    <div class="card-block">
+    <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+         Validation
+   <span>&nbsp;</span>
+   <span>&nbsp;</span>
+  <span class="badge badge-success badge-pill">{{client.validation}}</span>
+  <span>&nbsp;</span>
+  <span>&nbsp;</span>
+  <select style="font-family:bold;" class="custom-select" class="form-control input-under input-lg"  name="activation" [(ngModel)]="client.validation"  [ngModelOptions]="{standalone: true}" (ngModelChange)="ngValidation(client.validation)">
+                                                          <option value="oui" style="font-family:bold;" >oui</option>
+                                                          <option value="non" style="font-family:bold;" >non</option>
+                                                      </select>
+
+  &nbsp;&nbsp;&nbsp;<button (click)="enregistrer()"> Valider</button>
+
+   </li>
+   </ul>
+  </div>
+   </div>
+
+                           </div>
+                       </div>
+                   </div>
+
+
+               </div>
+
           </section>
 
 

@@ -97,9 +97,25 @@ fetchPosts(): void {
 }
 
 
-detailPrestataire(pres:any){
+detailPrestataire(form: any) {
+  this.router.navigate(['/detailprestataire'], {queryParams:
+            {
+    id : form.id,
+    nom: form.nom,
+    prenom: form.prenom,
+    numeroTel: form.numeroTel,
+    photoprofil: form.photoprofil,
+    email: form.email,
+    adresse: form.adresse,
+    dateCreation: form.dateCreation,
+    validation: form.validation,
+    activation: form.activation,
+    fonction: form.fonction
+
+            }});
 
 }
+
 
 onTableDataChange(event:any){
   this.page = event;

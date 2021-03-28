@@ -11,6 +11,11 @@ import { ListingclientComponent } from './listingclient/listingclient.component'
 import { ListingprestataireComponent } from './listingprestataire/listingprestataire.component';
 import { ListingcommandeComponent } from './listingcommande/listingcommande.component';
 
+
+import { DetailclientComponent } from './detailclient/detailclient.component';
+import { DetailprestataireComponent } from './detailprestataire/detailprestataire.component';
+import { DetailCommandeComponent } from './detailcommande/detailcommande.component';
+
 const routes: Routes = [
 { path: '', component: LoginComponent },
 { path: 'login', component: LoginComponent },
@@ -22,7 +27,11 @@ const routes: Routes = [
 { path: 'listingoperation', component: ListingoperationComponent,canActivate: [AuthguardGuard] },
 { path: 'listingclient', component: ListingclientComponent,canActivate: [AuthguardGuard] },
 { path: 'listingprestataire', component: ListingprestataireComponent,canActivate: [AuthguardGuard] },
-{ path: 'listingcommande', component: ListingcommandeComponent,canActivate: [AuthguardGuard] }
+{ path: 'listingcommande', component: ListingcommandeComponent,canActivate: [AuthguardGuard] },
+{ path: 'detailclient', component: DetailclientComponent,canActivate: [AuthguardGuard] },
+{ path: 'detailprestataire', component: DetailprestataireComponent,canActivate: [AuthguardGuard] },
+{ path: 'detailcommande', component: DetailCommandeComponent,canActivate: [AuthguardGuard] }
+
 
 
 ]

@@ -228,8 +228,10 @@
                     <th scope="col">Email</th>
                     <th scope="col">Adresse</th>
                     <th scope="col">Prestation</th>
+                    <th scope="col">Date inscription</th>
+                    <th scope="col">Action</th>
                    <!-- <th scope="col">Date inscription</th>-->
-                    <!--<th scope="col">Action</th>-->
+                    <!---->
                   </tr>
                 </thead>
                 <tbody>
@@ -245,10 +247,12 @@
                     <td>{{ pres.email }}</td>
                     <td>{{ pres.adresse }}</td>
                     <td>{{ pres.prestation }}</td>
-                  <!--  <td>{{ pres.dateCreation }}</td>
+                    <td>{{ pres.dateCreation }}</td>
                     <td>
-                <button type="button"  (click)="detailPrestataire(pres)" class="btn btn-secondary">Détail</button>
-                    </td>-->
+                      <button type="button"  (click)="detailPrestataire(pres)" class="btn btn-secondary">Détail</button>
+                          </td>
+                  <!--
+                   -->
                   </tr>
                 </tbody>
               </table>

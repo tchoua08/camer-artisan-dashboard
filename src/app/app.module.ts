@@ -35,13 +35,19 @@ import { ListingclientComponent } from './listingclient/listingclient.component'
 import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ListingcommandeComponent } from './listingcommande/listingcommande.component';
 
+import {DetailCommandeComponent } from './detailcommande/detailcommande.component';
 
+import {DetailprestataireComponent } from './detailprestataire/detailprestataire.component';
+import {DetailclientComponent } from './detailclient/detailclient.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
+    DetailCommandeComponent,
+    DetailprestataireComponent,
+    DetailclientComponent,
     AjoutermetierComponent,
     ListingmetierComponent,
     AjouteroperationComponent,

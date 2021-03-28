@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Camer-artisan - Dashboard</title>
+  <title>Formalourd - Dashboard</title>
 
 
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -29,7 +29,7 @@
         <!--  <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>-->
-        <div class="sidebar-brand-text mx-3">Camer-artisan</div>
+        <div class="sidebar-brand-text mx-3">Formalourd</div>
       </a>
 
       <!-- Divider -->
@@ -39,7 +39,7 @@
       <li class="nav-item active">
         <a class="nav-link" (click)="dashboard()">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Détail commande</span></a>
       </li>
 
       <!-- Divider -->
@@ -52,66 +52,20 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUn" aria-expanded="false" aria-controls="collapseUn">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Métier</span>
+          <span>Opérations</span>
         </a>
-        <div id="collapseUn" class="collapse multi-collapse" aria-labelledby="headingUn" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-            <button (click)="ajouterMetier()" class="collapse-item" >Ajouter métier</button>
-            <button (click)="listingMetier()" class="collapse-item" >Listing métier</button>
+            <button (click)="listingformateur()" class="collapse-item" >Listing formateur</button>
+            <button (click)="listingorganisme()" class="collapse-item" >Listing organisme</button>
+
+            <button (click)="listingcommande()" class="collapse-item" >Listing commande</button>
           </div>
         </div>
       </li>
-
-       <!-- Nav Item - Pages Collapse Menu -->
-       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Opération</span>
-        </a>
-        <div id="collapseTwo" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-            <button (click)="ajouterOperation()" class="collapse-item" >Ajouter opération</button>
-            <button (click)="listingOperation()" class="collapse-item" >Listing opération</button>
-          </div>
-        </div>
-      </li>
-
-
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Utilisateurs</span>
-          </a>
-          <div id="collapseThree" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-              <button (click)="listingClient()" class="collapse-item" >Listing clients</button>
-              <button (click)="listingPrestataire()" class="collapse-item" >Listing prestataires</button>
-            </div>
-          </div>
-        </li>
-
-
-         <!-- Nav Item - Pages Collapse Menu -->
-         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Commandes</span>
-          </a>
-          <div id="collapseFour" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-              <button (click)="listingCommande()" class="collapse-item" >Listing commandes</button>
-
-            </div>
-          </div>
-        </li>
 
 
 
@@ -183,7 +137,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <!--<span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>-->
-                <img class="img-profile rounded-circle" src="assets/img/camerartisan.png">
+                <img class="img-profile rounded-circle" src="assets/img/formalourd.png">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -214,60 +168,127 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Clients</h1>
+            <h1 class="h3 mb-0 text-gray-800">Commande</h1>
 
           </div>
-
-
-
           <section class="content">
-            <div class="container-fluid" *ngIf="clients$.length>0">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom et prénom</th>
-                    <th scope="col">Numéro de téléphone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Adresse</th>
-                    <th scope="col">Date inscription</th>
-                    <th scope="col">Action</th>
+           <div class="row">
+         <div class="col-md-8">
+             <div>
+                 <div class="card-content">
 
-                   <!--  <th scope="col">Prestation</th>
-                  -->
+                         <div class="mb-3 text-center">
+                             <div class="card-header"  class="card text-white bg-dark " >
+                                 Détail sur la formation
+                             </div>
+                             <div class="card-block">
+                               <ul class="list-group">
+                                   <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     Titre
+                                     <span class="badge badge-success badge-pill">{{title}}</span>
+                                   </li>
+                                   <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     Début
+          <span class="badge badge-success badge-pill">{{ debut |date:'yyyy/MM/dd h:mm:ss a'}}</span>
+                                   </li>
+                                   <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     Fin
+        <span class="badge badge-success badge-pill">{{fin |date:'yyyy/MM/dd h:mm:ss a'}}</span>
+                                   </li>
 
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let client of clients$ | paginate : {
-                    itemsPerPage: tableSize,
-                    currentPage: page,
-                    totalItems: count
-                  }
-                  ; let i=index;">
-                    <td>{{ i+1}}</td>
-                    <td>{{ client.nom }}&nbsp;{{ client.prenom }}</td>
-                    <td>{{ client.numeroTel }}</td>
-                    <td>{{ client.email }}</td>
-                    <td>{{ client.adresse }}</td>
-                    <td>{{ client.dateCreation }}</td>
-                    <td>
-                      <button type="button"  (click)="detailclient(client)" class="btn btn-secondary">Détail</button>
-                          </td>
-                   <!--
-                   -->
-                  </tr>
-                </tbody>
-              </table>
-              <div class="d-flex justify-content-center">
-                <!--<pagination-controls
-                  responsive="true"
-                  previousLabel="Prev"
-                  nextLabel="Next"
-                  (pageChange)="onTableDataChange($event)">
-                </pagination-controls>-->
-              </div>
-            </div>
+                              </ul>
+                             </div>
+                         </div>
+                         <div class="mb-3 text-center" >
+                             <div class="card-header"  class="card text-white bg-dark ">
+                                 Détail sur l'organisme
+                             </div>
+                             <div class="card-block">
+                               <ul class="list-group">
+                                   <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     Organisme
+                                     <span class="badge badge-success badge-pill">{{ commande.nomorganisme }}</span>
+                                   </li>
+                                   <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     Email
+                                     <span class="badge badge-success badge-pill">{{ commande.emailorganisme }}</span>
+                                   </li>
+                                   <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     Numéro de téléphone
+                                     <span class="badge badge-success badge-pill">{{commande.numerotelephoneorganisme }}</span>
+                                   </li>
+                               <li class="list-group-item d-flex justify-content-between align-items-center">
+                                     Adresse
+                               <span class="badge badge-success badge-pill">{{commande.adresseorganisme}}</span>
+                                   </li>
+
+                              </ul>
+                             </div>
+                         </div>
+
+
+
+                         <div class="mb-3 text-center" >
+                                <div class="card-header"  class="card text-white bg-dark ">
+                                   Statut de la commande
+                                </div>
+                                <div class="card-block">
+                                  <ul class="list-group">
+                                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Validation
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                        <span class="badge badge-success badge-pill">{{commande.validation}}</span>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                        <select style="font-family:bold;" class="custom-select" class="form-control input-under input-lg"  name="activation" [(ngModel)]="commande.validation"  [ngModelOptions]="{standalone: true}" (ngModelChange)="ngValidation(commande.validation)">
+                                                <option value="oui" style="font-family:bold;" >oui</option>
+                                                <option value="non" style="font-family:bold;" >non</option>
+                                            </select>
+
+                                      &nbsp;&nbsp;&nbsp;<button (click)="enregistrer()"> Enregistrer</button>
+
+                                      </li>
+
+                                 </ul>
+                                </div>
+                            </div>
+
+                 </div>
+             </div>
+         </div>
+
+         <div class="col-md-4">
+
+
+
+          <div class="card-header"  class="card text-white bg-dark ">
+            Détail sur le formateur
+        </div>
+        <div class="card-block">
+          <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                nom
+                <span class="badge badge-success badge-pill">{{ commande.nomformateur }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Email
+                <span class="badge badge-success badge-pill">{{ commande.emailformateur }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Numéro de téléphone
+                <span class="badge badge-success badge-pill">{{commande.numerotelformateur }}</span>
+              </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+                Adresse
+          <span class="badge badge-success badge-pill">{{commande.adresseformateur}}</span>
+              </li>
+
+         </ul>
+        </div>
+         </div>
+
+     </div>
           </section>
 
 
@@ -284,7 +305,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; camer-artisan 2020</span>
+            <span>Copyright &copy; formalourd 2020</span>
           </div>
         </div>
       </footer>
@@ -319,14 +340,7 @@
       </div>
     </div>
   </div>
-  <ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-scale-multiple"
->
-  <p style="font-size: 20px; color: white">Merci de patienter...</p>
-</ngx-spinner>
+
 </body>
 
 </html>

@@ -30,6 +30,7 @@ import { AppState } from '../app/store/models/app-state.model';
 
 
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -291,6 +292,22 @@ export class DataService {
 
   deleteOperation(id: string) {
     return this.operationCollection.doc(id).delete();
+  }
+
+  sendEmail(type: string, nom: string, email: string) {
+
+    const postVars = {
+       type,
+       nom,
+       email
+
+    };
+
+    this.http.post(this.endpoint, postVars)
+        .subscribe(
+            response => console.log(response),
+            response => console.log(response)
+        );
   }
 
 

@@ -70,7 +70,7 @@ export class DetailclientComponent implements OnInit {
    }
 
    ngValidation(validation: string) {
-     this.client.validation = validation;
+     this.client.activation = validation;
 
 
  }

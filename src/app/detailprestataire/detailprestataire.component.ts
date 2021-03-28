@@ -74,7 +74,7 @@ export class DetailprestataireComponent implements OnInit {
    }
 
    ngValidation(validation: string) {
-     this.prestataire.validation = validation;
+     this.prestataire.activation = validation;
 
 
  }

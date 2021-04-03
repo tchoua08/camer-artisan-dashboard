@@ -61,7 +61,8 @@ export class ListingclientComponent implements OnInit {
   this.router.navigate(['/listingprestataire']);
  }
 
- listingcommande() {
+ listingCommande() {
+
   this.router.navigate(['/listingcommande']);
  }
 

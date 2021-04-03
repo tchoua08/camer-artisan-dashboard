@@ -231,7 +231,7 @@
               <label class="input-group-text" for="inputGroupSelect01">Choisir la prestation</label>
             </div>
             <select (change)='onOptionsSelected($event)' class="custom-select"
-            id="inputGroupSelect01" [(ngModel)]="prestation" [ngModelOptions]="{standalone: true}" >
+            id="inputGroupSelect01" [(ngModel)]="prst" [ngModelOptions]="{standalone: true}" >
               <option [value]="sm.title" *ngFor="let sm of sousmenu">
                   {{sm.title}}
               </option>
@@ -242,7 +242,7 @@
 
         <div class="form-row">
           <div class="col">
-            <label for="validationDefault01">Tarif</label>
+            <label for="validationDefault01">Tarif (FCFA)</label>
             <input type="text"  [(ngModel)]="tarif" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Ajouter le tarif" value="tarif" required>
           </div>
 

@@ -294,6 +294,12 @@ export class DataService {
     return this.operationCollection.doc(id).delete();
   }
 
+
+  deleteCommande(id: string) {
+    return this.commandeCollection.doc(id).delete();
+  }
+
+
   sendEmail(type: string, nom: string, email: string) {
 
     const postVars = {

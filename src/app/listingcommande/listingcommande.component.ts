@@ -7,7 +7,7 @@ import { DataService } from '../../app/data.service';
 
 import { Commande } from '../store/models/commande.model';
 import { AnimationStyleMetadata } from '@angular/animations';
-
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -28,7 +28,7 @@ export class ListingcommandeComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private toastr: ToastrService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }
@@ -76,7 +76,6 @@ this.dataService.deleteToken();
 window.location.href = window.location.href;
 }
 
-
 fetchPosts(): void {
   this.commandes = this.service.getCommande();
 
@@ -90,6 +89,20 @@ fetchPosts(): void {
 
     });
   });
+}
+
+
+
+
+btnSupprimer(com:any){
+
+ this.service.deleteCommande(com.cle).then(res=>{
+  this.toastr.success('Bravo!', 'Suppression avec succès');
+ },err=>{
+  this.toastr.error('Oups!', 'Erreur de suppression.Merci de réessayer');
+
+ })
+
 }
 
 

@@ -69,8 +69,9 @@ export class DetailprestataireComponent implements OnInit {
       this.toastr.success('Bravo!', 'Validation avec succès');
       this.dataservice.sendEmail('user', this.prestataire.nom, this.prestataire.email);
     }, err => {
-      this.toastr.error('Oups!', 'Erreur de validation');
+    this.toastr.error('Oups!', 'Erreur de validation');
     });
+
    }
 
    ngValidation(validation: string) {

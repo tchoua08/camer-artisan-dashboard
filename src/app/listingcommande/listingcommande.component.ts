@@ -92,6 +92,18 @@ fetchPosts(): void {
 }
 
 
+    ngValidation(com:any , etat: string) {
+      com.etat = etat;
+     // alert(JSON.stringify(com));
+      this.service.updateCommande(com.cle,com).then(res=>{
+        this.toastr.success('Bravo!', 'état changé avec succès');
+      },err=> {
+        this.toastr.error('Oups!', 'Erreur de changement d\'etat');
+      })
+
+    }
+
+
 
 
 btnSupprimer(com:any){

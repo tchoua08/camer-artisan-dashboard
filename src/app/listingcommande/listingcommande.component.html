@@ -231,6 +231,7 @@
                     <th scope="col">Heure et date souhaitée</th>
                      <th scope="col">Date de la commande</th>
                     <th scope="col">Etat</th>
+                    <th scope="col">Changer etat</th>
                     <th scope="col">Action</th>
                    <!--  <th scope="col">tarifOperation</th>
                    <th scope="col">Date inscription</th>-->
@@ -253,6 +254,14 @@
                     <td scope="col">{{com.dateSouhaite}}-&nbsp;{{com.heureSouhaite}}</td>
                     <td scope="col">{{com.dateCommande}}</td>
                     <td scope="col">{{com.etat}}</td>
+                    <td scope="col">
+
+                      <select style="font-family:bold;" class="custom-select" class="form-control input-under input-lg"  name="activation" [(ngModel)]="com.etat"  [ngModelOptions]="{standalone: true}" (ngModelChange)="ngValidation(com,com.etat)">
+                        <option value="En cours" style="font-family:bold;" >En cours</option>
+                        <option value="Traiter" style="font-family:bold;" >Traiter</option>
+                        <option value="Cloturer" style="font-family:bold;" >Cloturer</option>
+</select>
+                    </td>
                     <td>
                       <button type="button"  (click)="btnSupprimer(com)" class="btn btn-danger">Supprimer</button>
                     </td>

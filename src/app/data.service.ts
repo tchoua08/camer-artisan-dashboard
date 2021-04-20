@@ -270,6 +270,12 @@ export class DataService {
       .update(operation);
   }
 
+  updateCommande(id: string, com: Commande) {
+    return this.commandeCollection
+      .doc<Commande>(id)
+      .update(com);
+  }
+
 
 
   // Delete operations

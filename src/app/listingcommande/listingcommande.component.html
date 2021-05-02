@@ -217,71 +217,54 @@
 
 
           <section class="content">
-            <div class="container-fluid" *ngIf="commandes$.length>0">
-              <table class="table">
-                <thead>
+
+ <p-table  *ngIf="commandes$" [value]="commandes$"  [paginator]="true"  [rows]="10" (sortFunction)="customSort($event)" [customSort]="true">
+   <ng-template pTemplate="header">
+
                   <tr>
+<th pSortableColumn="nomClient">Nom client <p-sortIcon field="nomClient"></p-sortIcon></th>
+<th pSortableColumn="numeroTel">Numéro téléphone <p-sortIcon field="numeroTel"></p-sortIcon></th>
+<th pSortableColumn="titreMetier">Metier <p-sortIcon field="titreMetier"></p-sortIcon></th>
+<th pSortableColumn="titreOperation">Operation <p-sortIcon field="titreOperation"></p-sortIcon></th>
+<th pSortableColumn="tarifOperation">tarif <p-sortIcon field="tarifOperation"></p-sortIcon></th>
+<th pSortableColumn="dateSouhaite">Date souhaitée <p-sortIcon field="dateSouhaite"></p-sortIcon></th>
+<th pSortableColumn="dateCommande">Date commande <p-sortIcon field="dateCommande"></p-sortIcon></th>
+<th pSortableColumn="etat">Etat <p-sortIcon field="etat"></p-sortIcon></th>
+                    <th>Changer etat</th>
+                    <th>Action</th>
+                </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-com>
+                  <tr>
+                  <td>{{com.nomClient}}</td>
+                  <td>{{com.numeroTel}}</td>
+                  <td>{{com.titreMetier}}</td>
+                  <td>{{com.titreOperation}}</td>
+                  <td>{{com.tarifOperation}}</td>
+                  <td>{{com.dateSouhaite}}-&nbsp;{{com.heureSouhaite}}</td>
+                  <td>{{com.dateCommande}}</td>
+                  <td>{{com.etat}}</td>
+                  <td>
 
-                    <th scope="col">#</th>
-                    <th scope="col">Nom client</th>
-                    <th scope="col">Numéro de téléphone</th>
-                    <th scope="col">Metier</th>
-                    <th scope="col">Operation</th>
-                    <th scope="col">tarif (FCFA)</th>
-                    <th scope="col">Heure et date souhaitée</th>
-                     <th scope="col">Date de la commande</th>
-                    <th scope="col">Etat</th>
-                    <th scope="col">Changer etat</th>
-                    <th scope="col">Action</th>
-                   <!--  <th scope="col">tarifOperation</th>
-                   <th scope="col">Date inscription</th>-->
-                    <!--<th scope="col">Action</th>-->
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let com of commandes$ | paginate : {
-                    itemsPerPage: tableSize,
-                    currentPage: page,
-                    totalItems: count
-                  }
-                  ; let i=index;">
-                    <td>{{ i+1}}</td>
-                    <td scope="col">{{com.nomClient}}</td>
-                    <td scope="col">{{com.numeroTel}}</td>
-                    <td scope="col">{{com.titreMetier}}</td>
-                    <td scope="col">{{com.titreOperation}}</td>
-                    <td scope="col">{{com.tarifOperation}}</td>
-                    <td scope="col">{{com.dateSouhaite}}-&nbsp;{{com.heureSouhaite}}</td>
-                    <td scope="col">{{com.dateCommande}}</td>
-                    <td scope="col">{{com.etat}}</td>
-                    <td scope="col">
+                    <select style="font-family:bold;" class="custom-select" class="form-control input-under input-lg"  name="activation" [(ngModel)]="com.etat"  [ngModelOptions]="{standalone: true}" (ngModelChange)="ngValidation(com,com.etat)">
+                      <option value="En cours" style="font-family:bold;" >
+                        En cours</option>
+                      <option value="Traiter" style="font-family:bold;" >Traiter</option>
+                      <option value="Cloturer" style="font-family:bold;" >Cloturer</option>
+               </select>
+                  </td>
+                  <td>
+                    <button type="button"  (click)="btnSupprimer(com)" class="btn btn-danger">Supprimer</button>
+                  </td>
+                </tr>
+                </ng-template>
 
-                      <select style="font-family:bold;" class="custom-select" class="form-control input-under input-lg"  name="activation" [(ngModel)]="com.etat"  [ngModelOptions]="{standalone: true}" (ngModelChange)="ngValidation(com,com.etat)">
-                        <option value="En cours" style="font-family:bold;" >En cours</option>
-                        <option value="Traiter" style="font-family:bold;" >Traiter</option>
-                        <option value="Cloturer" style="font-family:bold;" >Cloturer</option>
-</select>
-                    </td>
-                    <td>
-                      <button type="button"  (click)="btnSupprimer(com)" class="btn btn-danger">Supprimer</button>
-                    </td>
-                   <!-- <td>{{ com.prestation }}</td>
-                    <td>{{ com.dateCreation }}</td>
-                    <td>
-                <button type="button"  (click)="detailcomtataire(com)" class="btn btn-secondary">Détail</button>
-                    </td>-->
-                  </tr>
-                </tbody>
-              </table>
+            </p-table>
+
               <div class="d-flex justify-content-center">
-                <!--<pagination-controls
-                  responsive="true"
-                  previousLabel="Prev"
-                  nextLabel="Next"
-                  (pageChange)="onTableDataChange($event)">
-                </pagination-controls>-->
+
               </div>
-            </div>
+
           </section>
 
 

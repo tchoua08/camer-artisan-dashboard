@@ -39,6 +39,8 @@ import {DetailCommandeComponent } from './detailcommande/detailcommande.componen
 
 import {DetailprestataireComponent } from './detailprestataire/detailprestataire.component';
 import {DetailclientComponent } from './detailclient/detailclient.component';
+import {TableModule} from 'primeng/table';
+import {PaginatorModule} from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import {DetailclientComponent } from './detailclient/detailclient.component';
   ],
   imports: [
     BrowserModule,
+    TableModule,
+    PaginatorModule,
     FormsModule,
     NgxPaginationModule,
     ReactiveFormsModule,

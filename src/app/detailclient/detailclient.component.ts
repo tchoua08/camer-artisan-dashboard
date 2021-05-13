@@ -37,6 +37,11 @@ export class DetailclientComponent implements OnInit {
   this.route.navigate(['/listingmetier']);
  }
 
+ listingCommentaire(){
+  this.route.navigate(['/listingcommentaire']);
+ }
+
+
 
  listingClient() {
   this.route.navigate(['/listingclient']);

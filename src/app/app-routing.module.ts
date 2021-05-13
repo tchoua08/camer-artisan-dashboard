@@ -10,6 +10,7 @@ import { ListingoperationComponent } from './listingoperation/listingoperation.c
 import { ListingclientComponent } from './listingclient/listingclient.component';
 import { ListingprestataireComponent } from './listingprestataire/listingprestataire.component';
 import { ListingcommandeComponent } from './listingcommande/listingcommande.component';
+import { ListingcommentaireComponent } from './listingcommentaire/listingcommentaire.component';
 
 
 import { DetailclientComponent } from './detailclient/detailclient.component';
@@ -30,7 +31,9 @@ const routes: Routes = [
 { path: 'listingcommande', component: ListingcommandeComponent,canActivate: [AuthguardGuard] },
 { path: 'detailclient', component: DetailclientComponent,canActivate: [AuthguardGuard] },
 { path: 'detailprestataire', component: DetailprestataireComponent,canActivate: [AuthguardGuard] },
-{ path: 'detailcommande', component: DetailCommandeComponent,canActivate: [AuthguardGuard] }
+{ path: 'detailcommande', component: DetailCommandeComponent,canActivate: [AuthguardGuard] },
+{ path: 'listingcommentaire', component: ListingcommentaireComponent,canActivate: [AuthguardGuard] }
+
 
 
 

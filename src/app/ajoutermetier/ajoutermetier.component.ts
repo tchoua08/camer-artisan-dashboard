@@ -43,6 +43,11 @@ listingPrestataire(){
   this.router.navigate(['/listingclient']);
  }
 
+ listingCommentaire(){
+  this.router.navigate(['/listingcommentaire']);
+ }
+
+
  listingCommande(){
   this.router.navigate(['/listingcommande']);
  }

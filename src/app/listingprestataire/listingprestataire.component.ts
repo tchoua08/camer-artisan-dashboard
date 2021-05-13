@@ -44,6 +44,10 @@ export class ListingprestataireComponent implements OnInit {
   this.router.navigate(['/listingmetier']);
  }
 
+ listingCommentaire(){
+  this.router.navigate(['/listingcommentaire']);
+ }
+
  ajouterOperation(){
   this.router.navigate(['/ajouteroperation']);
  }

@@ -37,6 +37,11 @@ export class ListingoperationComponent implements OnInit {
 
   }
 
+  listingCommentaire(){
+    this.router.navigate(['/listingcommentaire']);
+   }
+  
+
   ajouterMetier(){
     this.router.navigate(['/ajoutermetier']);
   }

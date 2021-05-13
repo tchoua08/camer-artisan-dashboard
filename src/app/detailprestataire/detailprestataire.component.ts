@@ -42,6 +42,10 @@ export class DetailprestataireComponent implements OnInit {
    this.route.navigate(['/listingmetier']);
   }
 
+  listingCommentaire(){
+    this.route.navigate(['/listingcommentaire']);
+   }
+   
   ajouterOperation() {
    this.route.navigate(['/ajouteroperation']);
   }

@@ -5,33 +5,28 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DataService } from '../../app/data.service';
 
-import { Client } from '../store/models/client.model';
+import { Commentaire } from '../store/models/commentaire.model';
 import { AnimationStyleMetadata } from '@angular/animations';
+import { ToastrService } from 'ngx-toastr';
 import { SortEvent } from 'primeng/api';
-
-
-
-
-
-
 @Component({
-  selector: 'app-listingclient',
-  templateUrl: './listingclient.component.html',
-  styleUrls: ['./listingclient.component.scss']
+  selector: 'app-listingcommentaire',
+  templateUrl: './listingcommentaire.component.html',
+  styleUrls: ['./listingcommentaire.component.scss']
 })
-export class ListingclientComponent implements OnInit {
+export class ListingcommentaireComponent implements OnInit {
 
-  taillemetier = 0;
-  tailleutilisateur = 0;
-  taillecommande = 0;
-  clients: Observable<Array<Client>>;
-  clients$ = [];
+  taillemetier=0;
+  tailleutilisateur=0;
+  taillecommande=0;
+  commentaires: Observable<Array<Commentaire>>;
+  commentaires$ = [];
   page = 1;
   count = 0;
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {
+  constructor(private toastr: ToastrService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }
@@ -40,18 +35,18 @@ export class ListingclientComponent implements OnInit {
 
   }
 
-  ajouterMetier() {
+  ajouterMetier(){
     this.router.navigate(['/ajoutermetier']);
   }
- listingMetier() {
+ listingMetier(){
   this.router.navigate(['/listingmetier']);
  }
 
- ajouterOperation() {
+ ajouterOperation(){
   this.router.navigate(['/ajouteroperation']);
  }
 
- listingOperation() {
+ listingOperation(){
   this.router.navigate(['/listingoperation']);
  }
 
@@ -60,57 +55,39 @@ export class ListingclientComponent implements OnInit {
  }
 
 
- listingClient() {
+
+ listingClient(){
   this.router.navigate(['/listingclient']);
  }
 
- listingPrestataire() {
+ listingPrestataire(){
   this.router.navigate(['/listingprestataire']);
  }
 
- listingCommande() {
-
+ listingcommande(){
   this.router.navigate(['/listingcommande']);
  }
 
- dashboard() {
+ dashboard(){
   this.router.navigate(['/dashboard']);
  }
 
- detailclient(form: any) {
-  this.router.navigate(['/detailclient'], {queryParams:
-            {
-    id : form.id,
-    nom: form.nom,
-    prenom: form.prenom,
-    numeroTel: form.numeroTel,
-    photoprofil: form.photoprofil,
-    email: form.email,
-    adresse: form.adresse,
-    dateCreation: form.dateCreation,
-    validation: form.validation,
-    activation: form.activation,
-    fonction: form.fonction
 
-            }});
-
-}
-
-
-  logout() {
+  logout()
+{
 this.dataService.deleteToken();
 window.location.href = window.location.href;
 }
 
-
 fetchPosts(): void {
-  this.clients = this.service.getClient();
+  this.commentaires = this.service.getCommentaires();
 
-  this.clients.subscribe((resultat) => {
-    this.clients$ = [];
+  this.commentaires.subscribe((resultat) => {
+    this.commentaires$=[];
     resultat.forEach((res) => {
-       //  if (res.nomclients!=null){
-          this.clients$.push(res);
+       //  if (res.nomcommentaires!=null){
+          this.commentaires$.push(res);
+
        //  }
 
 
@@ -119,20 +96,53 @@ fetchPosts(): void {
 }
 
 
+    ngValidation(com:any , etat: string) {
+      com.etat = etat;
+     // alert(JSON.stringify(com));
+      this.service.updateCommande(com.cle,com).then(res=>{
+        this.toastr.success('Bravo!', 'état changé avec succès');
+      },err=> {
+        this.toastr.error('Oups!', 'Erreur de changement d\'etat');
+      })
+
+    }
 
 
-onTableDataChange(event: any) {
+
+
+btnSupprimer(com:any){
+
+ this.service.deleteCommentaire(com.cle).then(res=>{
+  this.toastr.success('Bravo!', 'Suppression avec succès');
+ },err=>{
+  this.toastr.error('Oups!', 'Erreur de suppression.Merci de réessayer');
+
+ })
+
+}
+
+
+detailPrestataire(pres:any){
+
+}
+
+onTableDataChange(event:any){
   this.page = event;
   this.fetchPosts();
 }
 
-onTableSizeChange(event: any): void {
+onTableSizeChange(event:any): void {
   this.tableSize = event.target.value;
   this.page = 1;
   this.fetchPosts();
 }
 
-customSort(event: SortEvent) {
+listingCommande(){
+  this.router.navigate(['/listingcommande']);
+ }
+
+
+ customSort(event: SortEvent) {
   event.data.sort((data1, data2) => {
       let value1 = data1[event.field];
       let value2 = data2[event.field];
@@ -152,6 +162,8 @@ customSort(event: SortEvent) {
       return (event.order * result);
   });
 }
+
+
 
 
 

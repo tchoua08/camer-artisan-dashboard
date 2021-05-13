@@ -7,6 +7,7 @@ import {
 // Importation des Models
 import { Client } from '../app/store/models/client.model';
 import { Commande } from '../app/store/models/commande.model';
+import { Commentaire } from '../app/store/models/commentaire.model';
 import { Prestataire } from '../app/store/models/prestataire.model';
 import { Utilisateur } from '../app/store/models/utilisateur.model';
 import { Metier } from '../app/store/models/metier.model';
@@ -44,6 +45,8 @@ export class DataService {
   public userKey = '';
   public endpoint = '';
 
+  private commentaireCollection: AngularFirestoreCollection<Commentaire>;
+
 
   private commandeCollection: AngularFirestoreCollection<Commande>;
 
@@ -66,6 +69,8 @@ export class DataService {
     this.clientCollection = this.afs.collection<Client>('Client');
 
     this.commandeCollection = this.afs.collection<Commande>('Commande');
+
+    this.commentaireCollection = this.afs.collection<Commentaire>('Commentaire');
 
     this.utilisateurCollection = this.afs.collection<Utilisateur>('Utilisateur');
     this.prestataireCollection = this.afs.collection<Prestataire>('Prestataire');
@@ -121,6 +126,20 @@ export class DataService {
 
     getPrestataire() {
     return this.prestataireCollection.snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const cle = a.payload.doc.id;
+
+          return { cle, ...data };
+        });
+      })
+    );
+  }
+
+
+  getCommentaires() {
+    return this.commentaireCollection.snapshotChanges().pipe(
       map((actions) => {
         return actions.map((a) => {
           const data = a.payload.doc.data();
@@ -303,6 +322,11 @@ export class DataService {
 
   deleteCommande(id: string) {
     return this.commandeCollection.doc(id).delete();
+  }
+
+  
+  deleteCommentaire(id: string) {
+    return this.commentaireCollection.doc(id).delete();
   }
 
 

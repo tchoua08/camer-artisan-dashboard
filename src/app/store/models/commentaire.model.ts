@@ -1,17 +1,36 @@
-import {Traitement} from './traitement.model';
 
-export class Commentaire extends Traitement{
+export class Commentaire{
   id: string;
-  description:string;
-  objet:string;
+  nomPrestataire : string;
+  prenomPrestataire:string;
+  photoPrestataire : string;
+  emailPrestataire : string;
+  commentaire : string;
+  uidPrestataire :string;
+  nomClient: string;
+  prenomClient: string;
+  emailClient :string;
+  uidClient :string;
+  photoClient:string;
+  dateCommentaire:string;
 
-  constructor(traitement:Traitement, obj: Commentaire | any = {}) {
+  constructor(obj: Commentaire | any = {}) {
 
-    super(traitement);
+    
     this.id = obj.id || '';
-    this.objet = obj.objet || '';
-    this.description = obj.description || '';
+    this.nomPrestataire = obj.nomPrestataire || '';
+    this.prenomPrestataire = obj.prenomPrestataire || '';
+    this.photoPrestataire = obj.photoPrestataire || '';
+    this.emailPrestataire = obj.emailPrestataire || '';
+    this.commentaire = obj.commentaire || '';
+    this.uidPrestataire = obj.uidPrestataire || '';
+    this.nomClient = obj.nomClient || '';
+    this.dateCommentaire = obj.dateCommentaire || '';
+    this.prenomClient = obj.prenomClient || '';
+    this.emailClient = obj.emailClient || '';
+    this.uidClient = obj.uidClient || '';
+    this.photoClient = obj.photoClient || '';
 
 
-}
+   }
 }

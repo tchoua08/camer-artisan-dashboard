@@ -40,6 +40,11 @@ export class DashboardComponent implements OnInit {
   ajouterMetier(){
     this.router.navigate(['/ajoutermetier']);
   }
+  listingCommentaire(){
+    this.router.navigate(['/listingcommentaire']);
+   }
+
+   
  listingMetier(){
   this.router.navigate(['/listingmetier']);
  }

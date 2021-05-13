@@ -33,6 +33,11 @@ export class DetailCommandeComponent implements OnInit {
    window.location.href = window.location.href;
    }
 
+   listingCommentaire(){
+    this.routr.navigate(['/listingcommentaire']);
+   }
+  
+
 
    listingformateur(){
     this.routr.navigate(['/listingformateur']);

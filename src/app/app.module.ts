@@ -41,6 +41,7 @@ import {DetailprestataireComponent } from './detailprestataire/detailprestataire
 import {DetailclientComponent } from './detailclient/detailclient.component';
 import {TableModule} from 'primeng/table';
 import {PaginatorModule} from 'primeng/paginator';
+import { ListingcommentaireComponent } from './listingcommentaire/listingcommentaire.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {PaginatorModule} from 'primeng/paginator';
     ListingoperationComponent,
     ListingprestataireComponent,
     ListingclientComponent,
-    ListingcommandeComponent
+    ListingcommandeComponent,
+    ListingcommentaireComponent
   ],
   imports: [
     BrowserModule,

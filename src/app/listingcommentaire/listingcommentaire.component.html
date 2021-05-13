@@ -50,7 +50,6 @@
         Interface
       </div>-->
 
-
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUn" aria-expanded="false" aria-controls="collapseUn">
@@ -82,6 +81,7 @@
       </li>
 
 
+
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -97,37 +97,34 @@
           </div>
         </li>
 
+ <!-- Nav Item - Pages Collapse Menu -->
+ <li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+    <i class="fas fa-fw fa-cog"></i>
+    <span>Commandes</span>
+  </a>
+  <div id="collapseFour" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+      <button (click)="listingCommande()" class="collapse-item" >Listing commandes</button>
 
+    </div>
+  </div>
+</li>
 
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Commandes</span>
-          </a>
-          <div id="collapseFour" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-              <button (click)="listingCommande()" class="collapse-item" >Listing commandes</button>
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+    <i class="fas fa-fw fa-cog"></i>
+    <span>Commentaires</span>
+  </a>
+  <div id="collapseFive" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+      <button (click)="listingCommentaire()" class="collapse-item" >Listing commentaire</button>
 
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Commentaires</span>
-          </a>
-          <div id="collapseFive" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-              <button (click)="listingCommentaire()" class="collapse-item" >Listing commentaire</button>
-        
-            </div>
-          </div>
-        </li>
-
-
+    </div>
+  </div>
+</li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -142,8 +139,12 @@
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-         <!-- Topbar -->
-         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -218,79 +219,59 @@
 
         </nav>
         <!-- End of Topbar -->
-      <!-- Main Content -->
-      <div id="content">
-     <!-- Main content -->
-<section class="content" >
-  <div class="container-fluid">
-    <div class="card  text-dark bg-light">
-    <form>
-      <div class="form-row">
-        <div class="col">
-          <label for="validationDefault01">Metier</label>
-          <input type="text"  [(ngModel)]="menu" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Ajouter un menu" value="menu" required>
-        </div>
 
-        <div class="col">
-          <label for="validationDefault03">Prestation</label>
-          <div class="container">
-            <div class="row">
-                <div class="col-xs-8">
-                    <input type="text" class="form-control" name="sous menu" placeholder="Sous menu" #taskInput>
-                </div>&nbsp;&nbsp;
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-                <div class="col-xs-6">
-                    <button class="btn btn-info" (click)="addTask(taskInput)">Ajouter</button>
-                </div>
-            </div>
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Commentaires</h1>
+            <p class="text-success" *ngIf="commentaires$.length>0" >
+              {{commentaires$.length}} commentaires(s)
+            </p>
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <table class="table table-striped">
+          </div>
 
-                        <tbody>
-                            <tr *ngFor="let task of tasks; let idx = index">
-                                <td *ngIf="task.is_canceled; else elseTd">
-                                    <s>{{ idx + 1 }}. {{task.title}}</s>
-                                </td>
-                                <ng-template #elseTd>
-                                    <td>{{ idx + 1 }}. {{task.title}}</td>
-                                </ng-template>
 
-                                <td>
-                                    <button class="btn btn-primary btn-xs" (click)="editTask(idx)"> Edit </button>
-                                </td>
+          <section class="content">
 
-                                <td>
-                                    <button class="btn btn-warning btn-xs" (click)="cancelTask(idx)"> annuler </button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger btn-xs" (click)="deleteTask(idx)"> Supprimer </button>
-                                </td>
-                            </tr>
+ <p-table  *ngIf="commentaires$" [value]="commentaires$"  [paginator]="true"  [rows]="10" (sortFunction)="customSort($event)" [customSort]="true">
+   <ng-template pTemplate="header">
 
-                        </tbody>
+                  <tr>
+<th pSortableColumn="nomClient">Nom client <p-sortIcon field="nomClient"></p-sortIcon></th>
+<th pSortableColumn="nomPrestataire">Nom Prestataire<p-sortIcon field="nomPrestataire"></p-sortIcon></th>
+<th pSortableColumn="commentaire">commentaire <p-sortIcon field="commentaire"></p-sortIcon></th>
+<th pSortableColumn="dateCommentaire">Date<p-sortIcon field="dateCommentaire"></p-sortIcon></th>
+                    <th>Action</th>
+                </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-com>
+                  <tr>
+                  <td>{{com.nomClient}}</td>
+                  <td>{{com.nomPrestataire}}</td>
+                  <td>{{com.commentaire}}</td>
+                  <td>{{com.dateCommentaire}}</td>
+                  <td>
+                    <button type="button"  (click)="btnSupprimer(com)" class="btn btn-danger">Supprimer</button>
+                  </td>
+                </tr>
+                </ng-template>
 
-                    </table>
-                </div>
-            </div>
-         </div>
+            </p-table>
+
+              <div class="d-flex justify-content-center">
+
+              </div>
+
+          </section>
+
+
+
+
 
         </div>
-
-
-      </div>
-
-      <button (click)="enregistrer()" class="btn btn-primary" type="submit">Enregister</button>
-    </form>
-    </div>
-
-
-    <!-- /.row -->
-  </div>
-  <!-- /.container-fluid -->
-</section>
-
+        <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -334,23 +315,8 @@
       </div>
     </div>
   </div>
-  <ngx-spinner
-  bdColor="rgba(51, 51, 51, 0.8)"
-  size="default"
-  type="ball-spin-clockwise"
->
-  <p style="color: white;">Enregistrement en cours.Merci de patienter.</p>
-</ngx-spinner>
+
 </body>
 
 </html>
 <router-outlet></router-outlet>
-
-
-
-
-
-
-
-
-

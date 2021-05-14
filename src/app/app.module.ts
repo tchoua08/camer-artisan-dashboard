@@ -42,6 +42,7 @@ import {DetailclientComponent } from './detailclient/detailclient.component';
 import {TableModule} from 'primeng/table';
 import {PaginatorModule} from 'primeng/paginator';
 import { ListingcommentaireComponent } from './listingcommentaire/listingcommentaire.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ListingcommentaireComponent } from './listingcommentaire/listingcomment
     TableModule,
     PaginatorModule,
     FormsModule,
+    NgbModule,
     NgxPaginationModule,
     ReactiveFormsModule,
     HttpClientModule,

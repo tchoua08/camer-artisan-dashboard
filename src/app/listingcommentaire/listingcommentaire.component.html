@@ -242,6 +242,7 @@
 <th pSortableColumn="nomClient">Nom client <p-sortIcon field="nomClient"></p-sortIcon></th>
 <th pSortableColumn="nomPrestataire">Nom Prestataire<p-sortIcon field="nomPrestataire"></p-sortIcon></th>
 <th pSortableColumn="commentaire">commentaire <p-sortIcon field="commentaire"></p-sortIcon></th>
+<th pSortableColumn="starRating">Notation <p-sortIcon field="starRating"></p-sortIcon></th>
 <th pSortableColumn="dateCommentaire">Date<p-sortIcon field="dateCommentaire"></p-sortIcon></th>
                     <th>Action</th>
                 </tr>
@@ -251,6 +252,9 @@
                   <td>{{com.nomClient}}</td>
                   <td>{{com.nomPrestataire}}</td>
                   <td>{{com.commentaire}}</td>
+                  <td>
+                    <ngb-rating [max]="5" [(rate)]="com.starRating" [readonly]="false"></ngb-rating>
+                  </td>
                   <td>{{com.dateCommentaire}}</td>
                   <td>
                     <button type="button"  (click)="btnSupprimer(com)" class="btn btn-danger">Supprimer</button>

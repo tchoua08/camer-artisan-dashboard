@@ -9,6 +9,8 @@ import { Commentaire } from '../store/models/commentaire.model';
 import { AnimationStyleMetadata } from '@angular/animations';
 import { ToastrService } from 'ngx-toastr';
 import { SortEvent } from 'primeng/api';
+import {TranslateService} from '@ngx-translate/core';
+
 @Component({
   selector: 'app-listingcommentaire',
   templateUrl: './listingcommentaire.component.html',
@@ -26,7 +28,7 @@ export class ListingcommentaireComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(private toastr: ToastrService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private translate: TranslateService,private toastr: ToastrService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }

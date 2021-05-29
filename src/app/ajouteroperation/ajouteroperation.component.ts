@@ -8,6 +8,8 @@ import { Operation } from './../store/models/operation.model';
 import {Task} from './../store/models/task.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-ajouteroperation',
@@ -27,7 +29,9 @@ export class AjouteroperationComponent implements OnInit {
   metier = {} as Metier;
   operation = {} as Operation;
 
-  constructor( private toastr: ToastrService,private SpinnerService: NgxSpinnerService, public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private translate: TranslateService,private toastr: ToastrService,private SpinnerService: NgxSpinnerService, public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {
+    translate.setDefaultLang('en');
+  }
 
   ngOnInit() {
     this.service.getMetier().subscribe(res => {

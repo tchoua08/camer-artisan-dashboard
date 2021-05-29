@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Camer-artisan - Dashboard</title>
+  <title>Camer-artisan - {{'TABLEAUBOARD' | translate}}</title>
 
 
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -39,7 +39,7 @@
       <li class="nav-item active">
         <a class="nav-link" (click)="dashboard()">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>{{'TABLEAUBOARD' | translate}}</span></a>
       </li>
 
       <!-- Divider -->
@@ -50,82 +50,83 @@
         Interface
       </div>-->
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUn" aria-expanded="false" aria-controls="collapseUn">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Métier</span>
-        </a>
-        <div id="collapseUn" class="collapse multi-collapse" aria-labelledby="headingUn" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-            <button (click)="ajouterMetier()" class="collapse-item" >Ajouter métier</button>
-            <button (click)="listingMetier()" class="collapse-item" >Listing métier</button>
-          </div>
+     <!-- Nav Item - Pages Collapse Menu -->
+     <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUn" aria-expanded="false" aria-controls="collapseUn">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>{{'METIER' | translate}}</span>
+      </a>
+      <div id="collapseUn" class="collapse multi-collapse" aria-labelledby="headingUn" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+          <button (click)="ajouterMetier()" class="collapse-item" >{{'AJOUTERMETIER' | translate}}</button>
+          <button (click)="listingMetier()" class="collapse-item" >{{'LISTINGMETIER' | translate}}</button>
         </div>
-      </li>
+      </div>
+    </li>
 
-       <!-- Nav Item - Pages Collapse Menu -->
-       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Opération</span>
-        </a>
-        <div id="collapseTwo" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-            <button (click)="ajouterOperation()" class="collapse-item" >Ajouter opération</button>
-            <button (click)="listingOperation()" class="collapse-item" >Listing opération</button>
-          </div>
+     <!-- Nav Item - Pages Collapse Menu -->
+     <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>{{'OPERATION' | translate}}</span>
+      </a>
+      <div id="collapseTwo" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+          <button (click)="ajouterOperation()" class="collapse-item" >{{'AJOUTEROPERATION' | translate}}</button>
+          <button (click)="listingOperation()" class="collapse-item" >{{'LISTINGOPERATION' | translate}}</button>
         </div>
-      </li>
+      </div>
+    </li>
+
+
+
+         <!-- Nav Item - Pages Collapse Menu -->
+         <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>{{'UTILISATEUR' | translate}}</span>
+          </a>
+          <div id="collapseThree" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+              <button (click)="listingClient()" class="collapse-item" >{{'LISTINGCLIENTS' | translate}}</button>
+              <button (click)="listingPrestataire()" class="collapse-item" >{{'LISTINGPRESTATAIRES' | translate}}</button>
+            </div>
+          </div>
+        </li>
 
 
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Utilisateurs</span>
+            <span>{{'COMMANDES' | translate}}</span>
           </a>
-          <div id="collapseThree" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div id="collapseFour" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-              <button (click)="listingClient()" class="collapse-item" >Listing clients</button>
-              <button (click)="listingPrestataire()" class="collapse-item" >Listing prestataires</button>
+              <button (click)="listingCommande()" class="collapse-item" >{{'LISTINGCOMMANDES' | translate}}</button>
+
             </div>
           </div>
         </li>
 
- <!-- Nav Item - Pages Collapse Menu -->
- <li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-    <i class="fas fa-fw fa-cog"></i>
-    <span>Commandes</span>
-  </a>
-  <div id="collapseFour" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-      <button (click)="listingCommande()" class="collapse-item" >Listing commandes</button>
-
-    </div>
-  </div>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-    <i class="fas fa-fw fa-cog"></i>
-    <span>Commentaires</span>
-  </a>
-  <div id="collapseFive" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-      <button (click)="listingCommentaire()" class="collapse-item" >Listing commentaire</button>
-
-    </div>
-  </div>
-</li>
-
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>{{'COMMENTAIRES' | translate}}</span>
+          </a>
+          <div id="collapseFive" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+              <button (click)="listingCommentaire()" class="collapse-item" >{{'LISTINGCOMMENTAIRE' | translate}}</button>
+        
+            </div>
+          </div>
+        </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -210,7 +211,7 @@
 
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Déconnexion
+                  {{'DETAIL' | translate}}
                 </a>
               </div>
             </li>
@@ -225,7 +226,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">{{'TABLEAUBOARD' | translate}}</h1>
 
           </div>
 
@@ -239,12 +240,12 @@
                             </div>
                             <div class="col col-xs-9 text-right">
                                 <div class="d-block huge">{{tailleutilisateur}}</div>
-         <div class="d-block">Utilisateurs</div>
+         <div class="d-block">{{'UTILISATEUR' | translate}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <span class="float-left">Détail </span>
+                        <span class="float-left">{{'DETAIL' | translate}} </span>
                         <a  [routerLink]="['/listingformateur']" [routerLinkActive]="['router-link-active']" class="float-right card-inverse">
                             <i class="fa fa-arrow-circle-right" style="color:rgb(48, 34, 128)"></i>&nbsp;
                         </a>
@@ -263,12 +264,12 @@
                             </div>
                             <div class="col col-xs-9 text-right">
                                 <div class="d-block huge">{{taillemetier}}</div>
-                                <div class="d-block">Métiers</div>
+                                <div class="d-block">{{'METIER' | translate}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <span class="float-left">Détail </span>
+                        <span class="float-left">{{'DETAIL' | translate}} </span>
                         <a  [routerLink]="['/listingorganisme']" [routerLinkActive]="['router-link-active']" class="float-right card-inverse">
                           <i class="fa fa-arrow-circle-right" style="color:rgb(48, 34, 128)"></i>&nbsp;
                         </a>
@@ -290,12 +291,12 @@
                             </div>
                             <div class="col col-xs-9 text-right">
                                 <div class="d-block huge">{{taillecommande}}</div>
-                                <div class="d-block">Commandes</div>
+                                <div class="d-block">{{'COMMANDES' | translate}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <span class="float-left">Détail </span>
+                        <span class="float-left">{{'DETAIL' | translate}} </span>
                         <a  [routerLink]="['/listingcommande']" [routerLinkActive]="['router-link-active']" class="float-right card-inverse">
                           <i class="fa fa-arrow-circle-right" style="color:rgb(48, 34, 128)"></i>&nbsp;
                         </a>
@@ -336,26 +337,41 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Prêt a nous quitter?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à mettre fin à votre session en cours.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-          <button class="btn btn-primary" (click)="logout()">Déconnexion </button>
-        </div>
+ <!-- Logout Modal-->
+ <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{'QUITTER' | translate}}</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">{{'DECONNEXIONMESSAGE' | translate}}</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">{{'ANNULER' | translate}}</button>
+        <button class="btn btn-primary" (click)="logout()"> {{'DECONNEXION' | translate}}</button>
       </div>
     </div>
   </div>
-
+</div>
+<ngx-spinner
+bdColor="rgba(51, 51, 51, 0.8)"
+size="default"
+type="ball-spin-clockwise"
+>
+<p style="color: white;">{{'ENREGPATIENTER' | translate}}</p>
+</ngx-spinner>
 </body>
 
 </html>
 <router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+

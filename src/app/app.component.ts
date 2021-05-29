@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
 selector: 'app-root',
@@ -11,18 +12,19 @@ export class AppComponent {
 loginbtn:boolean;
 logoutbtn:boolean;
 
-constructor(private dataService: ApiService) {
-dataService.getLoggedInName.subscribe(name => this.changeName(name));
-if(this.dataService.isLoggedIn())
-{
-console.log("loggedin");
-this.loginbtn=false;
-this.logoutbtn=true
-}
-else{
-this.loginbtn=true;
-this.logoutbtn=false
-}
+constructor(private translate: TranslateService, private dataService: ApiService) {
+        translate.setDefaultLang('en');
+        dataService.getLoggedInName.subscribe(name => this.changeName(name));
+        if(this.dataService.isLoggedIn())
+        {
+        console.log("loggedin");
+        this.loginbtn=false;
+        this.logoutbtn=true
+        }
+        else{
+        this.loginbtn=true;
+        this.logoutbtn=false
+        }
 
 }
 

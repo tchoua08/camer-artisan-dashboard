@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Component({
 selector: 'app-login',
@@ -13,7 +15,7 @@ styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 angForm: FormGroup;
-constructor(private SpinnerService: NgxSpinnerService, private toastr: ToastrService, private fb: FormBuilder, private dataService: ApiService, private router: Router) {
+constructor(private translate: TranslateService,private SpinnerService: NgxSpinnerService, private toastr: ToastrService, private fb: FormBuilder, private dataService: ApiService, private router: Router) {
 this.angForm = this.fb.group({
 email: ['', [Validators.required, Validators.minLength(1), Validators.email]],
 password: ['', Validators.required]

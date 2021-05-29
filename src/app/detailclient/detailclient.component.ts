@@ -4,6 +4,8 @@ import { DataService } from '../../app/data.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiService } from '../api.service';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-detailclient',
@@ -18,7 +20,7 @@ export class DetailclientComponent implements OnInit {
   fin: any;
 
 
-   constructor(public service: DataService, private dataService: ApiService, private route: Router, private toastr: ToastrService, private dataservice: DataService, public router: ActivatedRoute) {
+  constructor(private translate: TranslateService,public service: DataService, private dataService: ApiService, private route: Router, private toastr: ToastrService, private dataservice: DataService, public router: ActivatedRoute) {
 
 
 

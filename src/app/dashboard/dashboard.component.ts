@@ -7,6 +7,8 @@ import { DataService } from '../../app/data.service';
 import { Commande } from '../store/models/commande.model';
 import { Metier } from '../store/models/metier.model';
 import { Utilisateur } from '../store/models/utilisateur.model';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -27,7 +29,7 @@ export class DashboardComponent implements OnInit {
   utilisateurs: Observable<Array<Utilisateur>>;
   utilisateurs$ = [];
 
-  constructor(public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private translate: TranslateService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
     this.fetchPostsUtilisateur();
     this.fetchPostsCommande();
     this.fetchPostsMetier();

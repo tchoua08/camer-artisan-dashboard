@@ -9,6 +9,8 @@ import { Operation } from '../store/models/operation.model';
 import { AnimationStyleMetadata } from '@angular/animations';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import {TranslateService} from '@ngx-translate/core';
+
 
 
 @Component({
@@ -28,7 +30,7 @@ export class ListingoperationComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(private toastr: ToastrService, private SpinnerService: NgxSpinnerService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private translate: TranslateService,private toastr: ToastrService, private SpinnerService: NgxSpinnerService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }

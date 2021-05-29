@@ -7,6 +7,8 @@ import { Metier } from './../store/models/metier.model';
 import {Task} from './../store/models/task.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-ajoutermetier',
@@ -18,7 +20,9 @@ export class AjoutermetierComponent implements OnInit {
   tasks: Array<Task> = [];
   menu : string;
   metier = {} as Metier;
-  constructor(  private toastr: ToastrService,private SpinnerService: NgxSpinnerService,public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private translate: TranslateService,  private toastr: ToastrService,private SpinnerService: NgxSpinnerService,public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {
+    translate.setDefaultLang('en');
+  }
 
   ngOnInit() {
   }

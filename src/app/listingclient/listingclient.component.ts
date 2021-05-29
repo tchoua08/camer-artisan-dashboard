@@ -8,6 +8,8 @@ import { DataService } from '../../app/data.service';
 import { Client } from '../store/models/client.model';
 import { AnimationStyleMetadata } from '@angular/animations';
 import { SortEvent } from 'primeng/api';
+import {TranslateService} from '@ngx-translate/core';
+
 
 
 
@@ -31,7 +33,7 @@ export class ListingclientComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {
+  constructor(private translate: TranslateService,public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {
 
     this.fetchPosts();
   }

@@ -44,6 +44,12 @@ import {PaginatorModule} from 'primeng/paginator';
 import { ListingcommentaireComponent } from './listingcommentaire/listingcommentaire.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +79,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    }),
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-top-right',
@@ -99,3 +113,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

@@ -36,15 +36,15 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-100 mb-4">Bienvenue- Camer-artisan Bashboard</h1>
+                    <h1 class="h4 text-gray-100 mb-4"> {{'BIENVENUE' | translate}}- Camer-artisan Bashboard</h1>
                   </div>
                   <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" class="user">
 
                     <div class="form-group">
-                      <input type="email" name="email" formControlName="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
+                      <input type="email" name="email" formControlName="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="{{'EMAIL' | translate}}">
                     </div>
                     <div class="form-group">
-                      <input type="password" name="Password" formControlName="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
+                      <input type="password" name="Password" formControlName="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="{{'MOTPASSE' | translate}}">
                     </div>
                     <div class="form-group">
                      <!--- <div class="custom-control custom-checkbox small">
@@ -53,7 +53,7 @@
                       </div>-->
                     </div>
                     <button  type="submit" class="btn btn-primary btn-user btn-block">
-                      Connexion
+                      {{'CONNEXION' | translate}}
                     </button >
                     <div class="form-group">
                     &nbsp;
@@ -97,7 +97,7 @@
   color="#fff"
   type="ball-scale-multiple"
 >
-  <p style="font-size: 20px; color: white">Merci de patienter...</p>
+  <p style="font-size: 20px; color: white">  {{'PATIENTER' | translate}}</p>
 </ngx-spinner>
 </body>
 

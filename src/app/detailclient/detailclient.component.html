@@ -176,7 +176,7 @@
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="{{'RECHERCHE' | translate}}" aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -211,7 +211,7 @@
 
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Déconnexion
+                  {{'DECONNEXION' | translate}}
                 </a>
               </div>
             </li>
@@ -226,7 +226,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Detail client</h1>
+            <h1 class="h3 mb-0 text-gray-800">{{'DETAILCLIENT' | translate}}</h1>
 
           </div>
           <section class="content">
@@ -237,20 +237,20 @@
 
                                    <div class="mb-3 text-center">
                                        <div class="card-header"  class="card text-white bg-dark " >
-                                           Détail sur le client
+                                          {{'DETAILSURCLIENT' | translate}}
                                        </div>
                                        <div class="card-block">
             <ul class="list-group">
            <li class="list-group-item d-flex justify-content-between align-items-center">
-          Client
+          {{'CLIENT' | translate}}
        <span class="badge badge-success badge-pill">{{client.nom}}</span>
         </li>
        <li class="list-group-item d-flex justify-content-between align-items-center">
-                Email
+                 {{'EMAIL' | translate}}
        <span class="badge badge-success badge-pill">{{client.email}}</span>
         </li>
        <li class="list-group-item d-flex justify-content-between align-items-center">
-              Numéro téléphone
+             {{'NUMTEL' | translate}}
        <span class="badge badge-success badge-pill">
               {{client.numeroTel}}
         </span>
@@ -261,18 +261,18 @@
             </div>
         <div class="mb-3 text-center" >
       <div class="card-header"  class="card text-white bg-dark ">
-                      Adresse
+                      {{'ADRESSE' | translate}}
       </div>
       <div class="card-block">
       <ul class="list-group">
       <li class="list-group-item d-flex justify-content-between align-items-center">
-                 Adresse
+                  {{'ADRESSE' | translate}}
       <span class="badge badge-success badge-pill">{{client.adresse}}</span>
        </li>
 
 
       <li class="list-group-item d-flex justify-content-between align-items-center">
-                 Date de création
+                  {{'DATECREATION' | translate}}
       <span class="badge badge-success badge-pill">{{client.dateCreation}}</span>
         </li>
 
@@ -282,23 +282,23 @@
 
       <div class="mb-3 text-center" >
      <div class="card-header"  class="card text-white bg-dark ">
-          Activation du profil
+          {{'ACTIVATIONPROFIL' | translate}}
      </div>
     <div class="card-block">
     <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between align-items-center">
-         activation
+          {{'ACTIVATION' | translate}}
    <span>&nbsp;</span>
    <span>&nbsp;</span>
   <span class="badge badge-success badge-pill">{{client.activation}}</span>
   <span>&nbsp;</span>
   <span>&nbsp;</span>
   <select style="font-family:bold;" class="custom-select" class="form-control input-under input-lg"  name="activation" [(ngModel)]="client.activation"  [ngModelOptions]="{standalone: true}" (ngModelChange)="ngValidation(client.activation)">
-                                                          <option value="oui" style="font-family:bold;" >oui</option>
-                                                          <option value="non" style="font-family:bold;" >non</option>
+                                                          <option value="oui" style="font-family:bold;" >{{'OUI' | translate}}</option>
+                                                          <option value="non" style="font-family:bold;" >{{'NON' | translate}}</option>
                                                       </select>
 
-  &nbsp;&nbsp;&nbsp;<button (click)="enregistrer()"> Valider</button>
+  &nbsp;&nbsp;&nbsp;<button (click)="enregistrer()">  {{'VALIDATION' | translate}}</button>
 
    </li>
    </ul>

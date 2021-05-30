@@ -176,7 +176,7 @@
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="{{'RECHERCHE' | translate}}" aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -211,7 +211,7 @@
 
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Déconnexion
+                  {{'DECONNEXION' | translate}}
                 </a>
               </div>
             </li>
@@ -226,10 +226,10 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Clients</h1>
+            <h1 class="h3 mb-0 text-gray-800"> {{'CLIENT' | translate}}</h1>
 
             <p class="text-success"*ngIf="clients$.length>0" >
-              {{clients$.length}} client(s)
+              {{clients$.length}} {{'CLIENT' | translate}}(s)
             </p>
           </div>
 
@@ -241,13 +241,13 @@
               <ng-template pTemplate="header">
 
                              <tr>
-           <th pSortableColumn="nom">Nom et prénom <p-sortIcon field="nom"></p-sortIcon></th>
-           <th pSortableColumn="numeroTel">Numéro de téléphone <p-sortIcon field="numeroTel"></p-sortIcon></th>
-           <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
-           <th pSortableColumn="adresse">Adresse <p-sortIcon field="adresse"></p-sortIcon></th>
+           <th pSortableColumn="nom">{{'NOMPRENOM' | translate}} <p-sortIcon field="nom"></p-sortIcon></th>
+           <th pSortableColumn="numeroTel"> {{'NUMTEL' | translate}} <p-sortIcon field="numeroTel"></p-sortIcon></th>
+           <th pSortableColumn="email"> {{'EMAIL' | translate}} <p-sortIcon field="email"></p-sortIcon></th>
+           <th pSortableColumn="adresse"> {{'ADRESSE' | translate}}<p-sortIcon field="adresse"></p-sortIcon></th>
 
-           <th pSortableColumn="dateCreation">Date inscription <p-sortIcon field="dateCreation"></p-sortIcon></th>
-            <th>Action</th>
+           <th pSortableColumn="dateCreation">{{'DATEINSCR' | translate}} <p-sortIcon field="dateCreation"></p-sortIcon></th>
+            <th>{{'ACTION' | translate}}</th>
                            </tr>
                            </ng-template>
                            <ng-template pTemplate="body" let-client>
@@ -258,7 +258,7 @@
                               <td>{{ client.adresse }}</td>
                               <td>{{ client.dateCreation }}</td>
                               <td>
-                                <button type="button"  (click)="detailclient(client)" class="btn btn-secondary">Détail</button>
+                                <button type="button"  (click)="detailclient(client)" class="btn btn-secondary">{{'DETAIL' | translate}}</button>
                                     </td>
 
                            </tr>

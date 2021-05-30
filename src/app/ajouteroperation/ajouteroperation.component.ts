@@ -30,7 +30,7 @@ export class AjouteroperationComponent implements OnInit {
   operation = {} as Operation;
 
   constructor(private translate: TranslateService,private toastr: ToastrService,private SpinnerService: NgxSpinnerService, public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {
-    translate.setDefaultLang('en');
+   
   }
 
   ngOnInit() {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ApiService } from './api.service';
 import {TranslateService} from '@ngx-translate/core';
 
+
 @Component({
 selector: 'app-root',
 templateUrl: './app.component.html',
@@ -13,7 +14,7 @@ loginbtn:boolean;
 logoutbtn:boolean;
 
 constructor(private translate: TranslateService, private dataService: ApiService) {
-        translate.setDefaultLang('en');
+        translate.setDefaultLang(this.translate.getBrowserLang());
         dataService.getLoggedInName.subscribe(name => this.changeName(name));
         if(this.dataService.isLoggedIn())
         {

@@ -176,7 +176,7 @@
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="{{'RECHERCHE' | translate}}" aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -211,7 +211,7 @@
 
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Déconnexion
+                  {{'DECONNEXION' | translate}}
                 </a>
               </div>
             </li>
@@ -226,9 +226,9 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Commandes</h1>
+            <h1 class="h3 mb-0 text-gray-800">{{'COMMANDES' | translate}}</h1>
             <p class="text-success" *ngIf="commandes$.length>0" >
-              {{commandes$.length}} commande(s)
+              {{commandes$.length}} {{'COMMANDES' | translate}}
             </p>
 
           </div>
@@ -240,16 +240,16 @@
    <ng-template pTemplate="header">
 
                   <tr>
-<th pSortableColumn="nomClient">Nom client <p-sortIcon field="nomClient"></p-sortIcon></th>
-<th pSortableColumn="numeroTel">Numéro téléphone <p-sortIcon field="numeroTel"></p-sortIcon></th>
-<th pSortableColumn="titreMetier">Metier <p-sortIcon field="titreMetier"></p-sortIcon></th>
-<th pSortableColumn="titreOperation">Operation <p-sortIcon field="titreOperation"></p-sortIcon></th>
-<th pSortableColumn="tarifOperation">tarif <p-sortIcon field="tarifOperation"></p-sortIcon></th>
-<th pSortableColumn="dateSouhaite">Date souhaitée <p-sortIcon field="dateSouhaite"></p-sortIcon></th>
-<th pSortableColumn="dateCommande">Date commande <p-sortIcon field="dateCommande"></p-sortIcon></th>
-<th pSortableColumn="etat">Etat <p-sortIcon field="etat"></p-sortIcon></th>
-                    <th>Changer etat</th>
-                    <th>Action</th>
+<th pSortableColumn="nomClient"> {{'NOMCLIENT' | translate}} <p-sortIcon field="nomClient"></p-sortIcon></th>
+<th pSortableColumn="numeroTel"> {{'NUMTEL' | translate}} <p-sortIcon field="numeroTel"></p-sortIcon></th>
+<th pSortableColumn="titreMetier">{{'METIER' | translate}} <p-sortIcon field="titreMetier"></p-sortIcon></th>
+<th pSortableColumn="titreOperation">{{'OPERATION' | translate}}<p-sortIcon field="titreOperation"></p-sortIcon></th>
+<th pSortableColumn="tarifOperation">{{'TARIF' | translate}} <p-sortIcon field="tarifOperation"></p-sortIcon></th>
+<th pSortableColumn="dateSouhaite">{{'DATESOUHAITER' | translate}}<p-sortIcon field="dateSouhaite"></p-sortIcon></th>
+<th pSortableColumn="dateCommande"> {{'DATECOMMANDE' | translate}}<p-sortIcon field="dateCommande"></p-sortIcon></th>
+<th pSortableColumn="etat"> {{'ETAT' | translate}}<p-sortIcon field="etat"></p-sortIcon></th>
+                    <th> {{'CHANGERETAT' | translate}}</th>
+                    <th> {{'ACTION' | translate}}</th>
                 </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-com>
@@ -266,13 +266,13 @@
 
                     <select style="font-family:bold;" class="custom-select" class="form-control input-under input-lg"  name="activation" [(ngModel)]="com.etat"  [ngModelOptions]="{standalone: true}" (ngModelChange)="ngValidation(com,com.etat)">
                       <option value="En cours" style="font-family:bold;" >
-                        En cours</option>
-                      <option value="Traiter" style="font-family:bold;" >Traiter</option>
-                      <option value="Cloturer" style="font-family:bold;" >Cloturer</option>
+                         {{'ENCOURS' | translate}}</option>
+                      <option value="Traiter" style="font-family:bold;" >  {{'TRAITER' | translate}}</option>
+                      <option value="Cloturer" style="font-family:bold;" >  {{'CLOTURER' | translate}}</option>
                </select>
                   </td>
                   <td>
-                    <button type="button"  (click)="btnSupprimer(com)" class="btn btn-danger">Supprimer</button>
+                    <button type="button"  (click)="btnSupprimer(com)" class="btn btn-danger"> {{'SUPPRIMER' | translate}}</button>
                   </td>
                 </tr>
                 </ng-template>

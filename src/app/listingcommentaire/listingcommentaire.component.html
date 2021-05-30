@@ -211,7 +211,7 @@
 
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Déconnexion
+                  {{'DECONNEXION' | translate}}
                 </a>
               </div>
             </li>
@@ -226,9 +226,9 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Commentaires</h1>
+            <h1 class="h3 mb-0 text-gray-800"> {{'COMMENTAIRES' | translate}}</h1>
             <p class="text-success" *ngIf="commentaires$.length>0" >
-              {{commentaires$.length}} commentaires(s)
+              {{commentaires$.length}} {{'COMMENTAIRES' | translate}}
             </p>
 
           </div>
@@ -240,12 +240,12 @@
    <ng-template pTemplate="header">
 
                   <tr>
-<th pSortableColumn="nomClient">Nom client <p-sortIcon field="nomClient"></p-sortIcon></th>
-<th pSortableColumn="nomPrestataire">Nom Prestataire<p-sortIcon field="nomPrestataire"></p-sortIcon></th>
-<th pSortableColumn="commentaire">commentaire <p-sortIcon field="commentaire"></p-sortIcon></th>
-<th pSortableColumn="starRating">Notation <p-sortIcon field="starRating"></p-sortIcon></th>
-<th pSortableColumn="dateCommentaire">Date<p-sortIcon field="dateCommentaire"></p-sortIcon></th>
-                    <th>Action</th>
+<th pSortableColumn="nomClient">{{'NOMCLIENT' | translate}}<p-sortIcon field="nomClient"></p-sortIcon></th>
+<th pSortableColumn="nomPrestataire">{{'NOMPRESTATAIRE' | translate}}<p-sortIcon field="nomPrestataire"></p-sortIcon></th>
+<th pSortableColumn="commentaire"> {{'COMMENTAIRE' | translate}} <p-sortIcon field="commentaire"></p-sortIcon></th>
+<th pSortableColumn="starRating"> {{'NOTATION' | translate}}<p-sortIcon field="starRating"></p-sortIcon></th>
+<th pSortableColumn="dateCommentaire"> {{'DATE' | translate}}<p-sortIcon field="dateCommentaire"></p-sortIcon></th>
+                    <th>{{'ACTION' | translate}}</th>
                 </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-com>
@@ -258,7 +258,7 @@
                   </td>
                   <td>{{com.dateCommentaire}}</td>
                   <td>
-                    <button type="button"  (click)="btnSupprimer(com)" class="btn btn-danger">Supprimer</button>
+                    <button type="button"  (click)="btnSupprimer(com)" class="btn btn-danger">{{'SUPPRIMER' | translate}}</button>
                   </td>
                 </tr>
                 </ng-template>

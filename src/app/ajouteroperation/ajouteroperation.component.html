@@ -230,7 +230,7 @@
         <div class="col">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Choisir le metier</label>
+              <label class="input-group-text" for="inputGroupSelect01">{{'METIERCHOIX' | translate}}</label>
             </div>
 
             <select class="custom-select"
@@ -244,7 +244,7 @@
         <div class="col">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Choisir la prestation</label>
+              <label class="input-group-text" for="inputGroupSelect01">{{'PRESTATIONCHOIX' | translate}}</label>
             </div>
             <select (change)='onOptionsSelected($event)' class="custom-select"
             id="inputGroupSelect01" [(ngModel)]="prst" [ngModelOptions]="{standalone: true}" >
@@ -258,12 +258,12 @@
 
         <div class="form-row">
           <div class="col">
-            <label for="validationDefault01">Tarif (FCFA)</label>
+            <label for="validationDefault01"> {{'TARIF' | translate}}(FCFA)</label>
             <input type="text"  [(ngModel)]="tarif" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Ajouter le tarif" value="tarif" required>
           </div>
 
           <div class="col">
-            <label for="validationDefault01">Description</label>
+            <label for="validationDefault01">{{'DESCRIPTION' | translate}}</label>
             <textarea type="text"  [(ngModel)]="description" [ngModelOptions]="{standalone: true}" class="form-control" id="validationDefault01" placeholder="Description" value="description" required></textarea>
           </div>
         </div>
@@ -271,16 +271,16 @@
         <div class="form-row">
 
             <div class="col">
-          <label for="validationDefault03">Détails</label>
+          <label for="validationDefault03">{{'DETAIL' | translate}}</label>
           <div class="container">
             <div class="row">
                 <div class="col-xs-8">
-                    <input type="text" class="form-control" name="sous menu" placeholder="Détail" #taskInput>
+                    <input type="text" class="form-control" name="sous menu" placeholder="{{'DETAIL' | translate}}" #taskInput>
                 </div>&nbsp;&nbsp;
 
                 <div class="col-xs-6">
-                    <button class="btn btn-info" (click)="addTask(taskInput)">Ajouter</button>
-                </div>
+                  <button class="btn btn-info" (click)="addTask(taskInput)">{{'AJOUTER' | translate}}</button>
+              </div>
             </div>
 
             <div class="row">
@@ -296,16 +296,17 @@
                                     <td>{{ idx + 1 }}. {{task.title}}</td>
                                 </ng-template>
 
+                              
                                 <td>
-                                    <button class="btn btn-primary btn-xs" (click)="editTask(idx)"> Edit </button>
-                                </td>
+                                  <button class="btn btn-primary btn-xs" (click)="editTask(idx)">  {{'EDIT' | translate}}</button>
+                              </td>
 
-                                <td>
-                                    <button class="btn btn-warning btn-xs" (click)="cancelTask(idx)"> annuler </button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger btn-xs" (click)="deleteTask(idx)"> Supprimer </button>
-                                </td>
+                              <td>
+                                  <button class="btn btn-warning btn-xs" (click)="cancelTask(idx)"> {{'ANNULER' | translate}} </button>
+                              </td>
+                              <td>
+                                  <button class="btn btn-danger btn-xs" (click)="deleteTask(idx)">  {{'SUPPRIMER' | translate}}</button>
+                              </td>
                             </tr>
 
                         </tbody>
@@ -320,7 +321,7 @@
 
 
 
-      <button (click)="enregistrer()" class="btn btn-primary" type="submit">Enregister</button>
+      <button (click)="enregistrer()" class="btn btn-primary" type="submit">{{'ENREGISTER' | translate}}</button>
     </form>
     </div>
 

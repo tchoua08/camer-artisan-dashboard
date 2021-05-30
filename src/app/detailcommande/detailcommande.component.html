@@ -176,7 +176,7 @@
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="{{'RECHERCHE' | translate}}" aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -211,7 +211,7 @@
 
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Déconnexion
+                   {{'DECONNEXION' | translate}}
                 </a>
               </div>
             </li>
@@ -226,7 +226,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Commande</h1>
+            <h1 class="h3 mb-0 text-gray-800">  {{'COMMANDES' | translate}}</h1>
 
           </div>
           <section class="content">
@@ -237,20 +237,20 @@
 
                          <div class="mb-3 text-center">
                              <div class="card-header"  class="card text-white bg-dark " >
-                                 Détail sur la formation
+                                  {{'DETAILCOMMANDE' | translate}}
                              </div>
                              <div class="card-block">
                                <ul class="list-group">
                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                     Titre
+                                       {{'TITRE' | translate}}
                                      <span class="badge badge-success badge-pill">{{title}}</span>
                                    </li>
                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                     Début
+                                       {{'DEBUT' | translate}}
           <span class="badge badge-success badge-pill">{{ debut |date:'yyyy/MM/dd h:mm:ss a'}}</span>
                                    </li>
                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                     Fin
+                                       {{'FIN' | translate}}
         <span class="badge badge-success badge-pill">{{fin |date:'yyyy/MM/dd h:mm:ss a'}}</span>
                                    </li>
 
@@ -259,24 +259,24 @@
                          </div>
                          <div class="mb-3 text-center" >
                              <div class="card-header"  class="card text-white bg-dark ">
-                                 Détail sur l'organisme
+                                 {{'DETAILORGANISME' | translate}}
                              </div>
                              <div class="card-block">
                                <ul class="list-group">
                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                     Organisme
+                                       {{'ORGANISME' | translate}}
                                      <span class="badge badge-success badge-pill">{{ commande.nomorganisme }}</span>
                                    </li>
                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                     Email
+                                       {{'EMAIL' | translate}}
                                      <span class="badge badge-success badge-pill">{{ commande.emailorganisme }}</span>
                                    </li>
                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                     Numéro de téléphone
+                                     {{'NUMTEL' | translate}}
                                      <span class="badge badge-success badge-pill">{{commande.numerotelephoneorganisme }}</span>
                                    </li>
                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                     Adresse
+                                      {{'ADRESSE' | translate}}
                                <span class="badge badge-success badge-pill">{{commande.adresseorganisme}}</span>
                                    </li>
 
@@ -288,23 +288,24 @@
 
                          <div class="mb-3 text-center" >
                                 <div class="card-header"  class="card text-white bg-dark ">
-                                   Statut de la commande
+                                        {{'STATUTCOM' | translate}}
+                                        
                                 </div>
                                 <div class="card-block">
                                   <ul class="list-group">
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Validation
+                                        {{'VALIDATION' | translate}}
                                         <span>&nbsp;</span>
                                         <span>&nbsp;</span>
                                         <span class="badge badge-success badge-pill">{{commande.validation}}</span>
                                         <span>&nbsp;</span>
                                         <span>&nbsp;</span>
                                         <select style="font-family:bold;" class="custom-select" class="form-control input-under input-lg"  name="activation" [(ngModel)]="commande.validation"  [ngModelOptions]="{standalone: true}" (ngModelChange)="ngValidation(commande.validation)">
-                                                <option value="oui" style="font-family:bold;" >oui</option>
-                                                <option value="non" style="font-family:bold;" >non</option>
+                                                <option value="oui" style="font-family:bold;" >{{'OUI' | translate}}</option>
+                                                <option value="non" style="font-family:bold;" >{{'NON' | translate}}</option>
                                             </select>
 
-                                      &nbsp;&nbsp;&nbsp;<button (click)="enregistrer()"> Enregistrer</button>
+                                      &nbsp;&nbsp;&nbsp;<button (click)="enregistrer()"> {{'ENREGISTER' | translate}}</button>
 
                                       </li>
 

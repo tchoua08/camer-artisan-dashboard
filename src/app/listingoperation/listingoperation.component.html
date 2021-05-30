@@ -177,7 +177,7 @@
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="{{'RECHERCHE' | translate}}" aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -212,7 +212,7 @@
 
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Déconnexion
+                  {{'DECONNEXION' | translate}}
                 </a>
               </div>
             </li>
@@ -227,7 +227,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Opérations</h1>
+            <h1 class="h3 mb-0 text-gray-800">{{'OPERATION' | translate}}</h1>
 
           </div>
 
@@ -240,11 +240,11 @@
                   <tr>
 
                     <th scope="col">#</th>
-                    <th scope="col">Titre</th>
-                    <th scope="col">Metier</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Tarif(FCFA)</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">{{'TITRE' | translate}}</th>
+                    <th scope="col"> {{'METIER' | translate}}</th>
+                    <th scope="col"> {{'DESCRIPTION' | translate}}</th>
+                    <th scope="col">{{'TARIF' | translate}}(FCFA)</th>
+                    <th scope="col">{{'ACTION' | translate}}</th>
                    <!--  <th scope="col">Prestation</th>
                    <th scope="col">Date inscription</th>-->
                     <!--<th scope="col">Action</th>-->
@@ -263,7 +263,7 @@
                     <td>{{ operation.description }}</td>
                     <td>{{ operation.tarif }}</td>
                     <td>
-                      <button type="button"  (click)="supprimerOperation(operation)" class="btn btn-danger">Supprimer</button>
+                      <button type="button"  (click)="supprimerOperation(operation)" class="btn btn-danger">{{'SUPPRIMER' | translate}}</button>
                           </td>
                    <!-- <td>{{ operation.prestation }}</td>
                     <td>{{ operation.dateCreation }}</td>

@@ -10,6 +10,8 @@ import { AnimationStyleMetadata } from '@angular/animations';
 import { ToastrService } from 'ngx-toastr';
 import { SortEvent } from 'primeng/api';
 import {TranslateService} from '@ngx-translate/core';
+import { TraductionService } from 'src/app/traduction.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-listingcommentaire',
@@ -28,7 +30,7 @@ export class ListingcommentaireComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(private translate: TranslateService,private toastr: ToastrService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private SpinnerService: NgxSpinnerService,private traduction: TraductionService,private translate: TranslateService,private toastr: ToastrService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }
@@ -70,6 +72,10 @@ export class ListingcommentaireComponent implements OnInit {
   this.router.navigate(['/listingcommande']);
  }
 
+ envoiMail(){
+  this.router.navigate(['/sendmail']);
+ }
+
  dashboard(){
   this.router.navigate(['/dashboard']);
  }
@@ -89,6 +95,14 @@ fetchPosts(): void {
     resultat.forEach((res) => {
        //  if (res.nomcommentaires!=null){
           this.commentaires$.push(res);
+          this.SpinnerService.show();
+          this.traduction.fetchUrl(res.commentaire, 'fr',this.translate.getBrowserLang()).subscribe((resultat:any)=>{
+
+            res.commentaire =decodeURI(resultat.message);
+            this.commentaires$.push(res);
+            this.SpinnerService.hide();
+
+             })
 
        //  }
 

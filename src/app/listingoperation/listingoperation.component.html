@@ -115,6 +115,21 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Mail</span>
+          </a>
+          <div id="collapsesix" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+              <button (click)="envoiMail()" class="collapse-item" >{{'SENDMAIL' | translate}}</button>
+        
+            </div>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
             <i class="fas fa-fw fa-cog"></i>
             <span>{{'COMMENTAIRES' | translate}}</span>
@@ -338,7 +353,7 @@
   size="default"
   type="ball-spin-clockwise"
 >
-  <p style="color: white;">{{'ENREGPATIENTER' | translate}}</p>
+  <p style="color: white;">{{'PATIENTER' | translate}}</p>
 </ngx-spinner>
 </body>
 

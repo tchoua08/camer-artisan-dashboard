@@ -129,18 +129,23 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Mail</span>
-          </a>
-          <div id="collapsesix" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
-              <button (click)="envoiMail()" class="collapse-item" >{{'SENDMAIL' | translate}}</button>
-        
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+              <i class="fas fa-fw fa-cog"></i>
+              <span>Mail</span>
+            </a>
+            <div id="collapsesix" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+                <button (click)="envoiMail()" class="collapse-item" >{{'SENDMAIL' | translate}}</button>
+          
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+
+
+
+
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -225,7 +230,7 @@
 
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  {{'DETAIL' | translate}}
+                  {{'DECONNEXION' | translate}}
                 </a>
               </div>
             </li>
@@ -240,86 +245,60 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">{{'TABLEAUBOARD' | translate}}</h1>
+            <h1 class="h3 mb-0 text-gray-800">MAIL</h1>
 
+          
           </div>
 
-          <div class="row">
-            <div class="col-xl-4 col-lg-6">
-                <div class="card text-dark bg-info">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col col-xs-3">
-                                <i class="fa fa-user fa-5x"></i>
-                            </div>
-                            <div class="col col-xs-9 text-right">
-                                <div class="d-block huge">{{tailleutilisateur}}</div>
-         <div class="d-block">{{'UTILISATEUR' | translate}}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <span class="float-left">{{'DETAIL' | translate}} </span>
-                        <a  [routerLink]="['/listingformateur']" [routerLinkActive]="['router-link-active']" class="float-right card-inverse">
-                            <i class="fa fa-arrow-circle-right" style="color:rgb(48, 34, 128)"></i>&nbsp;
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-xl-4 col-lg-6">
 
 
-                <div class="card text-danger bg-info">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col col-xs-3">
-                                <i class="fa fa-tasks fa-5x"></i>
-                            </div>
-                            <div class="col col-xs-9 text-right">
-                                <div class="d-block huge">{{taillemetier}}</div>
-                                <div class="d-block">{{'METIER' | translate}}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <span class="float-left">{{'DETAIL' | translate}} </span>
-                        <a  [routerLink]="['/listingorganisme']" [routerLinkActive]="['router-link-active']" class="float-right card-inverse">
-                          <i class="fa fa-arrow-circle-right" style="color:rgb(48, 34, 128)"></i>&nbsp;
-                        </a>
-                    </div>
-                </div>
+          <section class="content">
+
+         
+
+          
+                  <div class="form-row mb-3">
+                      <label for="to" class="col-2 col-sm-2 col-form-label">{{'DESTINATAIRES' | translate}}&nbsp;&nbsp;</label>
+                      <div class="col-10 col-sm-10">
+                          <span class="ui-fluid">
+                              <p-autoComplete [(ngModel)]="users" [forceSelection]="true" [suggestions]="filteredUsersMultiple" (completeMethod)="filterUserMultiple($event)" [ngModelOptions]="{standalone: true}" styleClass="wid100"
+                              [size]="30" [minLength]="1"  [dropdown]="true" placeholder="email" field="email" [multiple]="true">
+                              </p-autoComplete>
+                          </span>
+      
+                      </div>
+      
+                  </div>
+      
+                  <div class="form-row mb-3">
+                      <label for="bcc" class="col-2 col-sm-2 col-form-label">{{'OBJET' | translate}}</label>
+                      <div class="col-10 col-sm-10">
+                          <input type="text" [(ngModel)]="objet" [ngModelOptions]="{standalone: true}" class="form-control" id="bcc" placeholder="{{'OBJET' | translate}}">
+                      </div>
+                  </div>
+           
+              <div class="row">
+                  <div class="col-sm-11 ml-auto">
+      
+                      <div class="form-group mt-4">
+                          <textarea class="form-control" id="message" [(ngModel)]="message" [ngModelOptions]="{standalone: true}" name="body" rows="12" placeholder="{{'MESSAGE' | translate}}"></textarea>
+                      </div>
+                      <div class="form-group">
+                          <button type="button" (click)="send()" class="btn btn-success">{{'ENVOYER' | translate}}</button>
+      
+                      </div>
+                  </div>
+              </div>
+      
+
+
+          
+
+          </section>
 
 
 
 
-            </div>
-            <div class="col-xl-4 col-lg-6">
-
-
-                <div class="card text-success bg-info">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                            </div>
-                            <div class="col col-xs-9 text-right">
-                                <div class="d-block huge">{{taillecommande}}</div>
-                                <div class="d-block">{{'COMMANDES' | translate}}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <span class="float-left">{{'DETAIL' | translate}} </span>
-                        <a  [routerLink]="['/listingcommande']" [routerLinkActive]="['router-link-active']" class="float-right card-inverse">
-                          <i class="fa fa-arrow-circle-right" style="color:rgb(48, 34, 128)"></i>&nbsp;
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
 
 
 
@@ -351,41 +330,32 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
- <!-- Logout Modal-->
- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{'QUITTER' | translate}}</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">{{'DECONNEXIONMESSAGE' | translate}}</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">{{'ANNULER' | translate}}</button>
-        <button class="btn btn-primary" (click)="logout()"> {{'DECONNEXION' | translate}}</button>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{'QUITTER' | translate}}</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">{{'DECONNEXIONMESSAGE' | translate}}</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">{{'ANNULER' | translate}}</button>
+          <button class="btn btn-primary" (click)="logout()"> {{'DECONNEXION' | translate}}</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<ngx-spinner
-bdColor="rgba(51, 51, 51, 0.8)"
-size="default"
-type="ball-spin-clockwise"
+  <ngx-spinner
+  bdColor="rgba(51, 51, 51, 0.8)"
+  size="default"
+  type="ball-spin-clockwise"
 >
-<p style="color: white;">{{'ENREGPATIENTER' | translate}}</p>
+  <p style="color: white;">{{'PATIENTER' | translate}}</p>
 </ngx-spinner>
 </body>
 
 </html>
 <router-outlet></router-outlet>
-
-
-
-
-
-
-
-
-

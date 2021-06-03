@@ -11,7 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import {TranslateService} from '@ngx-translate/core';
 
-
+import { TraductionService } from 'src/app/traduction.service';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class ListingmetierComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(private translate: TranslateService,private toastr: ToastrService,private SpinnerService: NgxSpinnerService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private traduction: TraductionService, private translate: TranslateService,private toastr: ToastrService,private SpinnerService: NgxSpinnerService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }
@@ -58,6 +58,10 @@ export class ListingmetierComponent implements OnInit {
 
  listingOperation(){
   this.router.navigate(['/listingoperation']);
+ }
+
+ envoiMail(){
+  this.router.navigate(['/sendmail']);
  }
 
 
@@ -92,7 +96,16 @@ fetchPosts(): void {
     this.metiers$=[];
     resultat.forEach((res) => {
        //  if (res.nommetiers!=null){
-          this.metiers$.push(res);
+        this.SpinnerService.show();
+          this.traduction.fetchUrl(res.menu, 'fr',this.translate.getBrowserLang()).subscribe((resultat:any)=>{
+
+            res.menu =decodeURI(resultat.message);
+            this.metiers$.push(res);
+            this.SpinnerService.hide();
+
+             })
+
+
        //  }
 
 

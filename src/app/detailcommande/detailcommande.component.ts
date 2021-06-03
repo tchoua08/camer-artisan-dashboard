@@ -39,7 +39,9 @@ export class DetailCommandeComponent implements OnInit {
     this.routr.navigate(['/listingcommentaire']);
    }
   
-
+   envoiMail(){
+    this.routr.navigate(['/sendmail']);
+   }
 
    listingformateur(){
     this.routr.navigate(['/listingformateur']);

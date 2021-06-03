@@ -43,7 +43,8 @@ export class DataService {
   private dbMetierPath = '/Metier';
   private dbOperationPath = '/Operation';
   public userKey = '';
-  public endpoint = '';
+  public endpoint = "http://suitdesk.com/sendEmail.php";
+  private db: AngularFirestore;
 
   private commentaireCollection: AngularFirestoreCollection<Commentaire>;
 
@@ -330,21 +331,56 @@ export class DataService {
   }
 
 
-  sendEmail(type: string, nom: string, email: string) {
+  // add message
 
-    const postVars = {
-       type,
-       nom,
-       email
+ addMessage(objet: string, message: string, adresse: any[]): Promise<any> {
 
-    };
+  const d = {
+    objet: objet,
+    message: message,
+    timestamp: Math.floor(Date.now() / 1000),
+    datetime: new Date().toLocaleString()
+  };
 
-    this.http.post(this.endpoint, postVars)
-        .subscribe(
-            response => console.log(response),
-            response => console.log(response)
-        );
-  }
+
+
+  return new Promise((resolve, reject) => {
+
+
+      adresse.forEach((valeur: any) => {
+
+          const id = this.db.createId();
+   this.db.collection('messages').doc(valeur.email).collection('data').doc(id).
+          set(d, { merge: true }).then((obj: any) => {
+
+              resolve(true);
+
+          }, (err: any) => {
+
+              reject(false);
+          });
+
+      });
+
+  });
+
+
+
+}
+
+sendEmail(subject: string, message: string, contacts:string){
+  contacts = contacts+",camerartisan@gmail.com";
+  let postVars = {
+      contacts : contacts,
+      titre : subject,
+      message : message,
+      email : "camerartisan@gmail.com"
+  };
+
+  //You may also want to check the response. But again, let's keep it simple.
+  return this.http.post(this.endpoint, postVars)
+    
+}
 
 
 }

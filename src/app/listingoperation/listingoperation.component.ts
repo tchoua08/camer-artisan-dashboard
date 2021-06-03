@@ -6,11 +6,10 @@ import { Observable } from 'rxjs';
 import { DataService } from '../../app/data.service';
 
 import { Operation } from '../store/models/operation.model';
-import { AnimationStyleMetadata } from '@angular/animations';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import {TranslateService} from '@ngx-translate/core';
-
+import { TraductionService } from 'src/app/traduction.service';
 
 
 @Component({
@@ -30,7 +29,7 @@ export class ListingoperationComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(private translate: TranslateService,private toastr: ToastrService, private SpinnerService: NgxSpinnerService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private traduction: TraductionService, private translate: TranslateService,private toastr: ToastrService, private SpinnerService: NgxSpinnerService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }
@@ -55,6 +54,10 @@ export class ListingoperationComponent implements OnInit {
   this.router.navigate(['/listingcommande']);
  }
 
+ envoiMail(){
+  this.router.navigate(['/sendmail']);
+ }
+ 
  ajouterOperation(){
   this.router.navigate(['/ajouteroperation']);
  }
@@ -95,7 +98,33 @@ fetchPosts(): void {
     this.operations$=[];
     resultat.forEach((res) => {
        //  if (res.nomoperations!=null){
-          this.operations$.push(res);
+         
+        this.SpinnerService.show();
+          this.traduction.fetchUrl(res.nom, 'fr',this.translate.getBrowserLang()).subscribe((resultat:any)=>{
+
+            res.nom =decodeURI(resultat.message);
+
+            this.traduction.fetchUrl(res.metier, 'fr',this.translate.getBrowserLang()).subscribe((resultat:any)=>{
+
+              res.metier =decodeURI(resultat.message);
+
+
+              this.traduction.fetchUrl(res.description, 'fr',this.translate.getBrowserLang()).subscribe((resultat:any)=>{
+
+                res.description =decodeURI(resultat.message);
+                this.operations$.push(res);
+                this.SpinnerService.hide();
+    
+                 })
+            
+  
+               })
+          
+
+             })
+
+            
+
        //  }
 
 

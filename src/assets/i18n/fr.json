@@ -10,6 +10,7 @@
 	"DECONNEXIONMESSAGE": "Sélectionnez Déconnexion ci-dessous si vous êtes prêt à mettre fin à votre session en cours.",
 	"DETAIL": "Détail",
 	"EDIT": "Edit",
+	"SENDMAIL": "Envoi de mail",
 	"ENREGISTER": "Enregistrer",
 	"ENREGPATIENTER": "Enregistrement en cours.Merci de patienter.",
 	"LISTINGCLIENTS": "Listing clients",
@@ -71,5 +72,9 @@
 	"MOTPASSE":"Mot de passe",
 	"CONNEXION":"Connexion",
 	"PATIENTER":"Merci de patienter...",
-	"BIENVENUE" :"Bienvenue"
+	"BIENVENUE" :"Bienvenue",
+	"DESTINATAIRES":"Destinataires",
+	"OBJET" :"Objet",
+	"ENVOYER" :"Envoyer",
+	"MESSAGE" :"Message"
 }

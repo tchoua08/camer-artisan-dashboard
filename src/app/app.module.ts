@@ -41,12 +41,14 @@ import {DetailprestataireComponent } from './detailprestataire/detailprestataire
 import {DetailclientComponent } from './detailclient/detailclient.component';
 import {TableModule} from 'primeng/table';
 import {PaginatorModule} from 'primeng/paginator';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 import { ListingcommentaireComponent } from './listingcommentaire/listingcommentaire.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
+import { EnvoimailComponent } from './envoimail/envoimail.component';
 
 
 
@@ -65,12 +67,14 @@ import {HttpClient} from '@angular/common/http';
     ListingprestataireComponent,
     ListingclientComponent,
     ListingcommandeComponent,
-    ListingcommentaireComponent
+    ListingcommentaireComponent,
+    EnvoimailComponent
   ],
   imports: [
     BrowserModule,
     TableModule,
     PaginatorModule,
+    AutoCompleteModule,
     FormsModule,
     NgbModule,
     NgxPaginationModule,

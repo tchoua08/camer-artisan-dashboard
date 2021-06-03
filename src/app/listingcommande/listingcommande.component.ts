@@ -10,7 +10,8 @@ import { AnimationStyleMetadata } from '@angular/animations';
 import { ToastrService } from 'ngx-toastr';
 import { SortEvent } from 'primeng/api';
 import {TranslateService} from '@ngx-translate/core';
-
+import { TraductionService } from 'src/app/traduction.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class ListingcommandeComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(private translate: TranslateService,private toastr: ToastrService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private SpinnerService: NgxSpinnerService,private traduction: TraductionService, private translate: TranslateService,private toastr: ToastrService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }
@@ -49,6 +50,10 @@ export class ListingcommandeComponent implements OnInit {
   }
  listingMetier(){
   this.router.navigate(['/listingmetier']);
+ }
+
+ envoiMail(){
+  this.router.navigate(['/sendmail']);
  }
 
  ajouterOperation(){
@@ -90,7 +95,29 @@ fetchPosts(): void {
     this.commandes$=[];
     resultat.forEach((res) => {
        //  if (res.nomcommandes!=null){
-          this.commandes$.push(res);
+         
+          
+          this.SpinnerService.show();
+          this.traduction.fetchUrl(res.titreMetier, 'fr',this.translate.getBrowserLang()).subscribe((resultat:any)=>{
+
+            res.titreMetier =decodeURI(resultat.message);
+          
+            this.traduction.fetchUrl(res.titreOperation, 'fr',this.translate.getBrowserLang()).subscribe((resultat:any)=>{
+
+              res.titreOperation =decodeURI(resultat.message);
+              
+              this.traduction.fetchUrl(res.etat, 'fr',this.translate.getBrowserLang()).subscribe((resultat:any)=>{
+
+                res.etattranslate =decodeURI(resultat.message);
+                this.commandes$.push(res);
+                this.SpinnerService.hide();
+    
+                 })
+  
+  
+               })
+
+             })
 
        //  }
 

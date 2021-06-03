@@ -81,6 +81,11 @@ export class AjouteroperationComponent implements OnInit {
   this.router.navigate(['/listingprestataire']);
  }
 
+
+ envoiMail(){
+  this.router.navigate(['/sendmail']);
+ }
+ 
  listingClient(){
   this.router.navigate(['/listingclient']);
  }

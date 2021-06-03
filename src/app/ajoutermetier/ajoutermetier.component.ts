@@ -51,6 +51,10 @@ listingPrestataire(){
   this.router.navigate(['/listingcommentaire']);
  }
 
+ envoiMail(){
+  this.router.navigate(['/sendmail']);
+ }
+
 
  listingCommande(){
   this.router.navigate(['/listingcommande']);

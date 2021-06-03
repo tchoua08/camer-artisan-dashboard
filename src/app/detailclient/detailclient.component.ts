@@ -39,6 +39,10 @@ export class DetailclientComponent implements OnInit {
   this.route.navigate(['/listingmetier']);
  }
 
+ envoiMail(){
+  this.route.navigate(['/sendmail']);
+ }
+
  listingCommentaire(){
   this.route.navigate(['/listingcommentaire']);
  }

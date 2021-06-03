@@ -127,6 +127,21 @@
           </div>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Mail</span>
+          </a>
+          <div id="collapsesix" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!--<h6 class="collapse-header">Custom Comp:</h6>-->
+              <button (click)="envoiMail()" class="collapse-item" >{{'SENDMAIL' | translate}}</button>
+        
+            </div>
+          </div>
+        </li>
+
+
 
 
       <!-- Divider -->

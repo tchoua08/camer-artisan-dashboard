@@ -53,6 +53,7 @@
 	"TITRE": "title",
 	"VALIDATION": "Validate",
 	"ACTION": "Action",
+	"SENDMAIL": "Send mail",
 	"BIENVENUE": "Welcome",
 	"CHANGERETAT": "Change state",
 	"CLOTURER": "fence",
@@ -71,5 +72,9 @@
 	"NOMPRESTATAIRE": "Name of provider",
 	"NOTATION": "Rating",
 	"PATIENTER": "Please wait ...",
-	"TRAITER": "Treat"
+	"TRAITER": "Treat",
+	"DESTINATAIRES":"Recipients",
+	"OBJET" :"Object",
+	"ENVOYER" :"Send",
+	"MESSAGE" :"Message"
 }

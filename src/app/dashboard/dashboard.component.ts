@@ -55,6 +55,10 @@ export class DashboardComponent implements OnInit {
   this.router.navigate(['/ajouteroperation']);
  }
 
+ envoiMail(){
+  this.router.navigate(['/sendmail']);
+ }
+
  listingOperation(){
   this.router.navigate(['/listingoperation']);
  }

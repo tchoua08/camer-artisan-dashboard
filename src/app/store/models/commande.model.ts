@@ -11,6 +11,7 @@ export class Commande {
   titreOperation: string;
   tarifOperation: number;
   etat: string;
+  etattranslate:string;
   descriptionOperation: string;
   details: Task[];
 
@@ -18,6 +19,7 @@ export class Commande {
     commande = commande || {};
     this.id = commande.id || '';
     this.etat = commande.etat || '';
+    this.etattranslate = commande.etattranslate || '';
     this.details = commande.details || null;
     this.dateCommande = commande.dateCommande || '';
     this.dateSouhaite = commande.dateSouhaite || '';

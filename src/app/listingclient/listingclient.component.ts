@@ -6,11 +6,10 @@ import { Observable } from 'rxjs';
 import { DataService } from '../../app/data.service';
 
 import { Client } from '../store/models/client.model';
-import { AnimationStyleMetadata } from '@angular/animations';
 import { SortEvent } from 'primeng/api';
 import {TranslateService} from '@ngx-translate/core';
-
-
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -33,7 +32,7 @@ export class ListingclientComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(private translate: TranslateService,public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {
+  constructor(private toastr: ToastrService,private SpinnerService: NgxSpinnerService,private translate: TranslateService,public service: DataService, private dataService: ApiService, private route: ActivatedRoute, private router: Router) {
 
     this.fetchPosts();
   }
@@ -47,6 +46,10 @@ export class ListingclientComponent implements OnInit {
   }
  listingMetier() {
   this.router.navigate(['/listingmetier']);
+ }
+
+ envoiMail(){
+  this.router.navigate(['/sendmail']);
  }
 
  ajouterOperation() {
@@ -77,6 +80,24 @@ export class ListingclientComponent implements OnInit {
 
  dashboard() {
   this.router.navigate(['/dashboard']);
+ }
+
+ supprimerClient(client:any){
+  this.SpinnerService.show();
+  this.service.deleteClient(client.cle).then(resul=>{
+     this.service.deleteUtilisateur(client.cle).then(res=>{
+      this.toastr.success('OK', 'Suppression avec succès');
+      this.SpinnerService.hide();
+     },(error:any)=>{
+
+      this.SpinnerService.hide();
+      this.toastr.error('Oups!', 'Erreur de suppression');
+     })
+  },err=>{
+    
+    this.SpinnerService.hide();
+    this.toastr.error('Oups!', 'Erreur de suppression');
+  })
  }
 
  detailclient(form: any) {

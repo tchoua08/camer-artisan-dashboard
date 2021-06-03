@@ -9,7 +9,9 @@ import { Prestataire } from '../store/models/prestataire.model';
 import { AnimationStyleMetadata } from '@angular/animations';
 import { SortEvent } from 'primeng/api';
 import {TranslateService} from '@ngx-translate/core';
-
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { TraductionService } from 'src/app/traduction.service';
 
 
 
@@ -30,7 +32,7 @@ export class ListingprestataireComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
 
-  constructor(private translate: TranslateService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
+  constructor(private traduction: TraductionService, private toastr: ToastrService,private SpinnerService: NgxSpinnerService,private translate: TranslateService,public service: DataService,private dataService: ApiService, private route: ActivatedRoute,private router: Router) {
 
     this.fetchPosts();
   }
@@ -79,6 +81,10 @@ export class ListingprestataireComponent implements OnInit {
   this.router.navigate(['/dashboard']);
  }
 
+ envoiMail(){
+  this.router.navigate(['/sendmail']);
+ }
+
 
   logout()
 {
@@ -94,13 +100,40 @@ fetchPosts(): void {
     this.prestataires$=[];
     resultat.forEach((res) => {
        //  if (res.nomprestataires!=null){
-          this.prestataires$.push(res);
+        
+          this.SpinnerService.show();
+          this.traduction.fetchUrl(res.prestation, 'fr',this.translate.getBrowserLang()).subscribe((resultat:any)=>{
+
+            res.prestation =decodeURI(resultat.message);
+            this.prestataires$.push(res);
+            this.SpinnerService.hide();
+
+             })
+
        //  }
 
 
     });
   });
 }
+
+supprimerPrestataire(prestataire:any){
+  this.SpinnerService.show();
+  this.service.deletePrestataire(prestataire.cle).then(resul=>{
+     this.service.deleteUtilisateur(prestataire.cle).then(res=>{
+      this.toastr.success('OK', 'Suppression avec succès');
+      this.SpinnerService.hide();
+     },(error:any)=>{
+
+      this.SpinnerService.hide();
+      this.toastr.error('Oups!', 'Erreur de suppression');
+     })
+  },err=>{
+    
+    this.SpinnerService.hide();
+    this.toastr.error('Oups!', 'Erreur de suppression');
+  })
+ }
 
 
 detailPrestataire(form: any) {

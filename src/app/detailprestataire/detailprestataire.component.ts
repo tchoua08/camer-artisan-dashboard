@@ -64,6 +64,10 @@ export class DetailprestataireComponent implements OnInit {
     this.route.navigate(['/listingprestataire']);
    }
 
+   envoiMail(){
+    this.route.navigate(['/sendmail']);
+   }
+
 
    dashboard() {
    this.route.navigate(['/dashboard']);

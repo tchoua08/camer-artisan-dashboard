@@ -23,7 +23,6 @@ import { DataService } from '../app/data.service';
 import { ToastrModule } from 'ngx-toastr';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AjoutermetierComponent } from './ajoutermetier/ajoutermetier.component';
 import { ListingmetierComponent } from './listingmetier/listingmetier.component';
@@ -77,7 +76,6 @@ import { EnvoimailComponent } from './envoimail/envoimail.component';
     AutoCompleteModule,
     FormsModule,
     NgbModule,
-    NgxPaginationModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,

@@ -262,11 +262,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let metier of metiers$ | paginate : {
-                    itemsPerPage: tableSize,
-                    currentPage: page,
-                    totalItems: count
-                  }
+                  <tr *ngFor="let metier of metiers$ 
                   ; let i=index;">
                     <td>{{ i+1}}</td>
                     <td>{{ metier.menu }}</td>

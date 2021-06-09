@@ -139,6 +139,7 @@
   },
   "defaultProject": "formalourd",
   "cli": {
+    "analytics": "0ae15c47-59e2-4249-a731-c4d56e7f7a9f",
     "defaultCollection": "@ngrx/schematics"
   }
 }
